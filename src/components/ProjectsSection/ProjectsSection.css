@@ -1,0 +1,64 @@
+/* ==============================
+   Projects Section
+   ============================== */
+
+.projects-sec {
+  background-color: var(--color-white);
+}
+
+.projects-sec__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-3xl);
+}
+
+.projects-sec__header .btn {
+  margin-bottom: var(--space-lg); /* Alineación con el divider */
+}
+
+/* Grid */
+.projects-sec__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.projects-sec__mobile-action {
+  display: none;
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-sec__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-sec__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-sec__header .btn {
+    display: none;
+  }
+
+  .projects-sec__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .projects-sec__mobile-action {
+    display: block;
+  }
+
+  .projects-sec__mobile-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
