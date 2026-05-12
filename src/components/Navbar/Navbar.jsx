@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/logoTest.png';
+import logo from '../../assets/logotest.png';
 
 const navLinks = [
   { label: 'Nosotros', href: '/#nosotros' },
