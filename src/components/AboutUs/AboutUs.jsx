@@ -2,19 +2,19 @@ import './AboutUs.css';
 
 const values = [
   {
-    title: 'PROFESIONALISMO',
-    subtitle: 'CONSTRUIMOS',
-    text: 'Desde el primer día basados en la autoexigencia y la determinación por lograr procesos de calidad en cada detalle, cumpliendo con los más altos estándares del rubro.',
-  },
-  {
     title: 'RESPONSABILIDAD',
-    subtitle: 'CONCRETAMOS',
-    text: 'A partir de la eficiencia, hacemos que cada minuto y cada decisión se transformen en resultados reales y demostrables, cumplimiento con plazos, calidad y acuerdos pactados, honrando el valor del tiempo y de la confianza.',
+    // subtitle: 'CONSTRUIMOS',
+    text: 'Para encarar cualquier trabajo, porque somos consientes de la importancia de cada emprendimiento.',
   },
   {
-    title: 'SATISFACCIÓN',
-    subtitle: 'CREAMOS',
-    text: 'Transformando una idea en espacios capaces de cambiarle la vida a las personas, empresas y a la sociedad. Evaluamos nuestro éxito en hogares y espacios urbanos disfrutados, más que en la medición de los metros cuadrados construidos.',
+    title: 'EMPATÍA',
+    // subtitle: 'CONCRETAMOS',
+    text: 'Para entender tus gustos y necesidades y acompañarte de la mejor manera posible durante todo el proceso que nos toca compartir.',
+  },
+  {
+    title: 'PROFESIONALISMO',
+    // subtitle: 'CREAMOS',
+    text: 'Abalado por los años de experiencia y una capacitación constante en nuevas tendencias y materiales, para lograr la satisfacción del cliente en cada trabajo.',
   },
 ];
 
@@ -22,6 +22,15 @@ export default function AboutUs() {
   return (
     <section id="nosotros" className="section about">
       <div className="container about__container">
+        <div className="about__header">
+          <span className="section-tag">Sobre nosotros</span>
+          <h2 className="section-title">Quienes somos</h2>
+          <div className="divider" />
+          <p className="section-subtitle">
+            El estudio EnEscala se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura y con el entusiasmo constante para llevar a cabo de manera eficiente nuestra labor con…
+          </p>
+        </div>
+
         <div className="about__values">
           {values.map((v, i) => (
             <div key={i} className="about__value-card">

@@ -73,6 +73,27 @@
   font-size: var(--fs-sm);
   color: var(--color-gray-dark);
   line-height: 1.8;
+  margin-bottom: var(--space-md);
+}
+
+.service-item__btn {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.service-item__btn:hover {
+  color: var(--color-primary-dark);
+  transform: translateX(4px);
 }
 
 .divider__card {
@@ -87,7 +108,7 @@
 @media (max-width: 1024px) {
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3xl) var(--space-xl);
+    gap: var(--space-xl) var(--space-xl);
   }
 
 }

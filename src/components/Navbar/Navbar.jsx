@@ -39,8 +39,10 @@ export default function Navbar() {
     }
   };
 
+  const isSolid = scrolled || location.pathname !== '/';
+
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--open' : ''}`}>
+    <header className={`navbar ${isSolid ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--open' : ''}`}>
       <div className="container navbar__inner">
         {/* Logo */}
         <Link to="/" className="navbar__logo" aria-label="En Escala — Inicio">

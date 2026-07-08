@@ -18,20 +18,21 @@ export default function Hero() {
       <div className="hero__overlay" />
 
       <div className="container hero__content">
-        {/* Tag */}
-        <span className="hero__tag">Estudio de Arquitectura</span>
 
         {/* Heading */}
         <h1 className="hero__title">
-          Diseñamos<br />
-          <span className="hero__title--accent">espacios</span> que<br />
-          trascienden.
+          Diseñamos con tus<br />
+          <span className="hero__title--accent">ideas</span> los espacios<br />
+          de tu futuro
         </h1>
 
-        {/* Subtitle */}
+        {/* Tag */}
+        <span className="hero__tag">EnEscala, Estudio de Arquitectura</span>
+
+        {/* Subtitle
         <p className="hero__subtitle">
           Transformamos ideas en obras. Arquitectura contemporánea con identidad, precisión técnica y atención al detalle.
-        </p>
+        </p> */}
 
         {/* CTA buttons */}
         <div className="hero__actions">
