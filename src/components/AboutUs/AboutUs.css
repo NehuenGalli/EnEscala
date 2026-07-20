@@ -4,7 +4,7 @@
 
 .about {
   background-color: #d3d3d3bd;
-  padding: var(--space-3xl) 0;
+  padding: var(--space-2xl) 0;
 }
 
 /* Modificador de ancho específico para esta sección */
@@ -12,6 +12,20 @@
   max-width: 1500px;
   /* Ajustá esto al valor que quieras solo para Nosotros */
   margin: 0 auto;
+}
+
+.about__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.about__header .section-subtitle {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.about__header .divider {
+  margin: var(--space-md) auto var(--space-lg);
 }
 
 .about__values {

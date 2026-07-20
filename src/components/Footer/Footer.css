@@ -12,7 +12,7 @@
 .footer__top {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   padding-bottom: var(--space-2xl);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -36,7 +36,7 @@
 
 .footer__links {
   display: flex;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
 }
 
 .footer__title {
@@ -84,6 +84,10 @@
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  .footer {
+    padding-top: var(--space-lg);
+  }
+
   .footer__top {
     flex-direction: column;
   }

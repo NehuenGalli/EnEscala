@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footer__brand">
             <img src={logoE} alt="En Escala Logo" className="footer__logo" />
             <p className="footer__desc">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur corporis autem nulla quibusdam, aliquam id iste maiores quisquam?
+              El estudio EnEscala se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura
             </p>
           </div>
 
@@ -23,6 +23,7 @@ export default function Footer() {
                 <li><a href="/#nosotros">Nosotros</a></li>
                 <li><a href="/#servicios">Servicios</a></li>
                 <li><a href="/#proyectos">Proyectos</a></li>
+                <li><a href="/#contacto">Contacto</a></li>
               </ul>
             </div>
 

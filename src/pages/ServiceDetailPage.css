@@ -1,0 +1,262 @@
+/* ======================================================
+   Service Detail Page Styles
+   ====================================================== */
+
+.service-detail-page {
+  background-color: var(--color-gray-bg);
+  padding-top: var(--navbar-height);
+}
+
+.service-detail-hero {
+  position: relative;
+  min-height: calc(100vh - var(--navbar-height));
+  background-image: linear-gradient(rgba(235, 232, 227, 0.8), rgba(235, 232, 227, 0.8)), url('/FondoServicios.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--space-3xl) 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Horizontal brand accent band */
+.service-detail-hero__band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 320px;
+  background-color: #CAD900;
+  /* Correct lime/yellow-green brand color from mockup */
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.service-detail-hero__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* Card aligned to the right, just like the photo */
+}
+
+/* Transparent Dark Card */
+.service-detail-card {
+  background-color: rgba(43, 43, 43, 0.94);
+  color: var(--color-white);
+  padding: var(--space-xl);
+  max-width: 650px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.service-detail-card__header {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-sm);
+}
+
+.service-detail-card__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.service-detail-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.service-detail-card__description {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+/* Ver Más Block */
+.service-detail-card__ver-mas {
+  font-size: var(--fs-sm);
+  line-height: 1.8;
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-md);
+  margin: var(--space-xs) 0;
+}
+
+.ver-mas-label {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-primary-light);
+  margin-right: var(--space-xs);
+}
+
+.ver-mas-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Subsections styling (for Construction & Remodeling) */
+.service-detail-card__subsections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-detail-card__sub-item {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.service-detail-card__sub-item strong {
+  color: var(--color-primary);
+  display: block;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+/* List / Bullet point styling */
+.service-detail-card__list-section {
+  margin-top: var(--space-xs);
+}
+
+.service-detail-card__list-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.service-detail-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.service-detail-card__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.list-item-check {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: var(--fs-base);
+  line-height: 1;
+  user-select: none;
+}
+
+.list-item-text {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Card footer and back button */
+.service-detail-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-detail-card__back-btn {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.service-detail-card__back-btn:hover {
+  color: var(--color-primary);
+  transform: translateX(-4px);
+}
+
+.service-detail-card__logo {
+  height: 48px;
+  width: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ======================================================
+   Responsive / Media Queries
+   ====================================================== */
+
+@media (max-width: 1024px) {
+  .service-detail-hero__container {
+    justify-content: center;
+    /* Center card on smaller viewports */
+  }
+
+  .service-detail-card {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-detail-hero {
+    padding: var(--space-xl) 0;
+  }
+
+  .service-detail-hero__band {
+    height: 400px;
+    /* Make the band taller in mobile to cover background behind card */
+  }
+
+  .service-detail-card {
+    padding: var(--space-lg);
+    gap: var(--space-sm);
+  }
+
+  .service-detail-card__title {
+    font-size: var(--fs-md);
+  }
+
+  .service-detail-card__logo {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-detail-hero__band {
+    height: 320px;
+    /* Keep it visible but proportional */
+  }
+
+  .service-detail-card {
+    background-color: rgba(43, 43, 43, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-md);
+    margin: 0;
+    width: 100%;
+    border-radius: var(--radius-sm);
+  }
+}
