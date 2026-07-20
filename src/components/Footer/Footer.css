@@ -22,10 +22,10 @@
 }
 
 .footer__logo {
-  height: 100px;
+  height: 140px;
   width: auto;
-  margin: 0;
-  opacity: 0.9;
+  margin-bottom: var(--space-sm);
+  opacity: 0.95;
 }
 
 .footer__desc {
@@ -101,5 +101,11 @@
     flex-direction: column;
     gap: var(--space-md);
     text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer__logo {
+    height: 100px;
   }
 }
