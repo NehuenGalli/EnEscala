@@ -4,7 +4,7 @@ import { servicesData } from '../data/services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
-import logoE from '../assets/logo-e.svg';
+import logoE from '../assets/Logo EN ESCALA HORIZONTALL.svg';
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();

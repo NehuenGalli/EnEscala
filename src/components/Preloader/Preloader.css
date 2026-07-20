@@ -1,0 +1,206 @@
+/* ======================================================
+   Preloader Styles (E_solo SVG)
+   ====================================================== */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #141414;
+  background-image: radial-gradient(circle at center, #222222 0%, #0d0d0d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.preloader--hiding {
+  transform: translateY(-100%);
+  opacity: 0.95;
+}
+
+.preloader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Logo E_solo Container --- */
+.preloader__logo-wrap {
+  position: relative;
+  width: 160px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__logo-e {
+  width: 160px;
+  height: 130px;
+  filter: drop-shadow(0 0 25px rgba(204, 209, 46, 0.45));
+  animation: logoPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animación por partes del SVG E_solo */
+.e-part {
+  opacity: 0;
+  transform-origin: center;
+  animation: partAppear 0.8s ease forwards;
+}
+
+.e-front {
+  animation-delay: 0.15s;
+}
+
+.e-dark {
+  animation-delay: 0.35s;
+}
+
+.e-shadow1,
+.e-shadow2 {
+  animation-delay: 0.5s;
+}
+
+.e-inner1,
+.e-inner2,
+.e-inner3,
+.e-inner4 {
+  animation-delay: 0.65s;
+}
+
+/* Brillo ambiental verde lima detrás del E_solo */
+.preloader__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(204, 209, 46, 0.35) 0%, rgba(204, 209, 46, 0) 70%);
+  border-radius: 50%;
+  animation: glowPulse 1.6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* --- Texto de Marca --- */
+.preloader__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.preloader__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 7px;
+  color: #ffffff;
+  opacity: 0;
+  animation: textFadeIn 0.8s ease forwards 0.4s;
+}
+
+.preloader__subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 8px;
+  color: #CCD12E;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: textFadeIn 0.8s ease forwards 0.6s;
+}
+
+/* --- Barra de Progreso --- */
+.preloader__bar-container {
+  width: 170px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+  position: relative;
+}
+
+.preloader__bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #CCD12E;
+  box-shadow: 0 0 12px #CCD12E;
+  animation: barProgress 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.2s;
+}
+
+/* ======================================================
+   Keyframe Animations
+   ====================================================== */
+
+@keyframes partAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.88);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barProgress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 65%;
+  }
+  100% {
+    width: 100%;
+  }
+}

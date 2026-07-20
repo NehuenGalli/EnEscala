@@ -40,7 +40,7 @@
 }
 
 .navbar__logo img {
-  height: 100px;
+  height: 140px;
   width: auto;
 }
 
@@ -191,5 +191,11 @@
 
   .navbar__hamburger {
     display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar__logo img {
+    height: 100px;
   }
 }
