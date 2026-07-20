@@ -9,12 +9,12 @@
 .projects-sec__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--space-3xl);
+  align-items: center;
+  margin-bottom: var(--space-xl);
 }
 
 .projects-sec__header .btn {
-  margin-bottom: var(--space-lg); /* Alineación con el divider */
+  margin-bottom: 0;
 }
 
 /* Grid */
@@ -41,6 +41,7 @@
   .projects-sec__header {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 0;
   }
 
   .projects-sec__header .btn {

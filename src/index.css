@@ -86,6 +86,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Scroll Offset for Fixed Navbar */
+[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 8px);
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--fs-base);
@@ -319,7 +324,7 @@ h6 {
 
 @media (max-width: 425px) {
   .section-title {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-lg);
   }
 
   .section-subtitle {

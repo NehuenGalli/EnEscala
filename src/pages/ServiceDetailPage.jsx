@@ -69,7 +69,7 @@ export default function ServiceDetailPage() {
 
               {/* Bottom footer bar of card with E-logo */}
               <footer className="service-detail-card__footer">
-                <Link to="/#servicios" className="service-detail-card__back-btn">
+                <Link to="/" state={{ scrollToId: 'servicios' }} className="service-detail-card__back-btn">
                   &larr; Volver a Servicios
                 </Link>
                 <img

@@ -26,24 +26,13 @@ export default function Contact() {
                 <input type="text" id="name" className="contact-form__input" placeholder="Tu nombre" required />
               </div>
 
-              <div className="contact-form__row">
-                <div className="contact-form__group">
-                  <label htmlFor="email" className="contact-form__label">Email</label>
-                  <input type="email" id="email" className="contact-form__input" placeholder="tu@email.com" required />
-                </div>
-                <div className="contact-form__group">
-                  <label htmlFor="phone" className="contact-form__label">Teléfono</label>
-                  <input type="tel" id="phone" className="contact-form__input" placeholder="+54 9 11..." />
-                </div>
-              </div>
-
               <div className="contact-form__group">
                 <label htmlFor="message" className="contact-form__label">Mensaje</label>
                 <textarea id="message" className="contact-form__input contact-form__textarea" placeholder="Contanos sobre tu proyecto..." required></textarea>
               </div>
 
               <button type="submit" className="btn btn-primary contact-form__submit">
-                Enviar mensaje
+                Enviar mensaje por WhatsApp
               </button>
             </form>
           </div>

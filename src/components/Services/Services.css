@@ -114,9 +114,14 @@
 }
 
 @media (max-width: 640px) {
+  .services__header {
+    margin-bottom: var(--space-xl);
+  }
+
+
   .services__grid {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 
   .container__services {

@@ -4,6 +4,7 @@
 
 .project-detail {
   background-color: var(--color-white);
+  padding-top: var(--navbar-height);
 }
 
 /* --- Hero --- */

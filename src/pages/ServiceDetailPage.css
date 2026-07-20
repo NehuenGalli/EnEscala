@@ -4,6 +4,7 @@
 
 .service-detail-page {
   background-color: var(--color-gray-bg);
+  padding-top: var(--navbar-height);
 }
 
 .service-detail-hero {
@@ -27,7 +28,8 @@
   top: 50%;
   transform: translateY(-50%);
   height: 320px;
-  background-color: #CAD900; /* Correct lime/yellow-green brand color from mockup */
+  background-color: #CAD900;
+  /* Correct lime/yellow-green brand color from mockup */
   mix-blend-mode: multiply;
   z-index: 1;
 }
@@ -37,7 +39,8 @@
   z-index: 2;
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* Card aligned to the right, just like the photo */
+  justify-content: flex-end;
+  /* Card aligned to the right, just like the photo */
 }
 
 /* Transparent Dark Card */
@@ -199,7 +202,7 @@
   height: 48px;
   width: auto;
   opacity: 0.95;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 /* ======================================================
@@ -208,7 +211,8 @@
 
 @media (max-width: 1024px) {
   .service-detail-hero__container {
-    justify-content: center; /* Center card on smaller viewports */
+    justify-content: center;
+    /* Center card on smaller viewports */
   }
 
   .service-detail-card {
@@ -222,7 +226,8 @@
   }
 
   .service-detail-hero__band {
-    height: 400px; /* Make the band taller in mobile to cover background behind card */
+    height: 400px;
+    /* Make the band taller in mobile to cover background behind card */
   }
 
   .service-detail-card {
@@ -241,9 +246,10 @@
 
 @media (max-width: 480px) {
   .service-detail-hero__band {
-    height: 320px; /* Keep it visible but proportional */
+    height: 320px;
+    /* Keep it visible but proportional */
   }
-  
+
   .service-detail-card {
     background-color: rgba(43, 43, 43, 0.94);
     border: 1px solid rgba(255, 255, 255, 0.05);

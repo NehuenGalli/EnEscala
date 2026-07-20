@@ -33,7 +33,7 @@
   padding-top: calc(var(--navbar-height) + 60px);
   padding-bottom: 160px;
   max-width: var(--container-max);
-  margin: 0 auto;
+  margin: 0 0 0 200px;
 }
 
 /* Tag */
@@ -42,7 +42,7 @@
   font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 5px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: var(--color-primary);
   margin-bottom: var(--space-lg);
   animation: fadeInUp 0.6s ease 0.1s both;
@@ -192,6 +192,10 @@
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
+  .hero__content {
+    margin: 0 auto;
+  }
+
   .hero__line {
     display: none;
   }
@@ -208,7 +212,6 @@
 
   .hero__content {
     padding-top: calc(var(--navbar-height) + 40px);
-    padding-bottom: 220px;
   }
 
   .hero__title {
