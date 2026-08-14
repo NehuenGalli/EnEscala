@@ -21,7 +21,10 @@ export default function ServiceDetailPage() {
 
       <main className="service-detail-page">
         {/* Background blueprint section */}
-        <section className="service-detail-hero">
+        <section
+          className="service-detail-hero"
+          style={service.bgImage ? { '--hero-bg-image': `url("${service.bgImage}")` } : undefined}
+        >
           {/* Green accent band crossing horizontally */}
           <div className="service-detail-hero__band" />
 
