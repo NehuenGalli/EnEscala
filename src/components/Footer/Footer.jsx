@@ -1,5 +1,5 @@
 import './Footer.css';
-import logoE from '../../assets/Logo EN ESCALA HORIZONTALL.svg';
+import logoE from '../../assets/Logo EN ESCALA TEXTO F.svg';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

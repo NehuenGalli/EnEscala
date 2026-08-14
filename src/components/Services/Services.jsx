@@ -1,6 +1,7 @@
 import './Services.css';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../../data/services';
+import { useInView } from '../../hooks/useInView';
 
 // Íconos SVG específicos para cada servicio
 const serviceIcons = {
@@ -72,18 +73,27 @@ const defaultIcon = (
 );
 
 export default function Services() {
+  const [headerRef, isHeaderInView] = useInView({ threshold: 0.2, once: true });
+  const [gridRef, isGridInView] = useInView({ threshold: 0.1, once: true });
+
   return (
     <section id="servicios" className="section services">
       <div className="container container__services">
         {/* Header */}
-        <div className="services__header">
+        <div 
+          ref={headerRef} 
+          className={`services__header reveal-init ${isHeaderInView ? 'reveal-visible' : ''}`}
+        >
           <span className="section-tag">Lo que hacemos</span>
           <h2 className="section-title">Nuestras soluciones</h2>
           <div className="divider" />
         </div>
 
         {/* Cards grid */}
-        <div className="services__grid">
+        <div 
+          ref={gridRef} 
+          className={`services__grid stagger-parent ${isGridInView ? 'is-visible' : ''}`}
+        >
           {servicesData.map(s => (
             <article key={s.id} className="service-item">
               <div className="service-item__icon">

@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/Logo EN ESCALA HORIZONTALL.svg';
+import logo from '../../assets/Logo EN ESCALA TEXTO F.svg';
 
 const navLinks = [
   { label: 'Inicio', href: '/' },

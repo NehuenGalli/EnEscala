@@ -22,7 +22,7 @@
 }
 
 .footer__logo {
-  height: 140px;
+  height: 48px;
   width: auto;
   margin-bottom: var(--space-sm);
   opacity: 0.95;
@@ -106,6 +106,6 @@
 
 @media (max-width: 500px) {
   .footer__logo {
-    height: 100px;
+    height: 40px;
   }
 }

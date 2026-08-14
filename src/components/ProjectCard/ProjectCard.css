@@ -10,15 +10,21 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
-  box-shadow: var(--shadow-sm);
-  animation: fadeInUp 0.6s ease both;
+  box-shadow: var(--shadow-md);
+  will-change: transform;
 }
 
-.project-card:hover,
-.project-card:focus-visible {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  outline: none;
+.project-card:active {
+  transform: scale(0.985);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover,
+  .project-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+    outline: none;
+  }
 }
 
 /* --- Image & Overlay --- */
@@ -38,30 +44,36 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: transform 0.4s var(--ease-out);
+  will-change: transform;
 }
 
-.project-card:hover .project-card__img,
-.project-card:focus-visible .project-card__img {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-card__img,
+  .project-card:focus-visible .project-card__img {
+    transform: scale(1.04);
+  }
 }
 
 .project-card__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(30, 30, 30, 0.4);
+  background-color: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity var(--transition-base), background-color var(--transition-base);
+  transition: opacity var(--transition-fast);
   z-index: 1;
 }
 
-.project-card:hover .project-card__overlay,
-.project-card:focus-visible .project-card__overlay {
-  opacity: 1;
-  background-color: rgba(30, 30, 30, 0.7);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-card__overlay,
+  .project-card:focus-visible .project-card__overlay {
+    opacity: 1;
+  }
 }
 
 .project-card__overlay-btn {
@@ -74,8 +86,8 @@
   padding: 10px 24px;
   border: 2px solid var(--color-white);
   border-radius: var(--radius-sm);
-  transform: translateY(20px);
-  transition: transform var(--transition-base), background-color var(--transition-fast), color var(--transition-fast);
+  transform: translateY(12px);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .project-card__overlay-btn:hover {
@@ -83,9 +95,11 @@
   color: var(--color-dark);
 }
 
-.project-card:hover .project-card__overlay-btn,
-.project-card:focus-visible .project-card__overlay-btn {
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-card__overlay-btn,
+  .project-card:focus-visible .project-card__overlay-btn {
+    transform: translateY(0);
+  }
 }
 
 /* Badge */

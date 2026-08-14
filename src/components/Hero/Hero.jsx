@@ -21,9 +21,11 @@ export default function Hero() {
 
         {/* Heading */}
         <h1 className="hero__title">
-          Diseñamos con tus<br />
-          <span className="hero__title--accent">ideas</span> los espacios<br />
-          de tu futuro
+          <span className="hero__title-line">Diseñamos con tus</span>
+          <span className="hero__title-line">
+            <span className="hero__title--accent">ideas</span> los espacios
+          </span>
+          <span className="hero__title-line">de tu futuro</span>
         </h1>
 
         {/* Tag */}

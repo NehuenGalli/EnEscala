@@ -1,4 +1,5 @@
 import './AboutUs.css';
+import { useInView } from '../../hooks/useInView';
 
 const values = [
   {
@@ -19,10 +20,16 @@ const values = [
 ];
 
 export default function AboutUs() {
+  const [sectionRef, isSectionInView] = useInView({ threshold: 0.15, once: true });
+  const [cardsRef, areCardsInView] = useInView({ threshold: 0.2, once: true });
+
   return (
     <section id="nosotros" className="section about">
       <div className="container about__container">
-        <div className="about__header">
+        <div 
+          ref={sectionRef} 
+          className={`about__header reveal-init ${isSectionInView ? 'reveal-visible' : ''}`}
+        >
           <span className="section-tag">Sobre nosotros</span>
           <h2 className="section-title">Quienes somos</h2>
           <div className="divider" />
@@ -31,7 +38,10 @@ export default function AboutUs() {
           </p>
         </div>
 
-        <div className="about__values">
+        <div 
+          ref={cardsRef} 
+          className={`about__values stagger-parent ${areCardsInView ? 'is-visible' : ''}`}
+        >
           {values.map((v, i) => (
             <div key={i} className="about__value-card">
               <h3 className="about__value-title">{v.title}</h3>

@@ -6,16 +6,16 @@ export default function Preloader({ onComplete }) {
   const [removed, setRemoved] = useState(false);
 
   useEffect(() => {
-    // Iniciar el cierre suave después de 1.8s
+    // Iniciar el cierre suave después de 900ms
     const timer1 = setTimeout(() => {
       setHiding(true);
-    }, 1800);
+    }, 900);
 
-    // Remover del DOM al finalizar la transición (2.6s)
+    // Remover del DOM al finalizar la transición (1.4s)
     const timer2 = setTimeout(() => {
       setRemoved(true);
       if (onComplete) onComplete();
-    }, 2600);
+    }, 1400);
 
     return () => {
       clearTimeout(timer1);

@@ -30,7 +30,7 @@ export default function ProjectCard({ project, index = 0 }) {
           <span className="project-card__overlay-btn">Ver proyecto →</span>
         </div>
         {/* Category badge */}
-        <span className="project-card__badge">{project.category}</span>
+        {/* <span className="project-card__badge">{project.category}</span> */}
       </div>
 
       {/* Info */}
@@ -40,7 +40,7 @@ export default function ProjectCard({ project, index = 0 }) {
           <span className="project-card__year">{project.year}</span>
         </div>
         <h3 className="project-card__title">{project.title}</h3>
-        <p className="project-card__area">{project.area} · {project.location}</p>
+        <p className="project-card__area">{project.location}</p>
         {/* <p className="project-card__desc">{project.description}</p> */}
 
         <div className="project-card__cta">

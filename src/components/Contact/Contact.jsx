@@ -1,12 +1,19 @@
 import './Contact.css';
+import { useInView } from '../../hooks/useInView';
 
 export default function Contact() {
+  const [formRef, isFormInView] = useInView({ threshold: 0.15, once: true });
+  const [infoRef, isInfoInView] = useInView({ threshold: 0.15, once: true });
+
   return (
     <section id="contacto" className="section section--dark contact-sec">
       <div className="container">
         <div className="contact-sec__inner">
           {/* Form Side */}
-          <div className="contact-sec__form-side">
+          <div 
+            ref={formRef} 
+            className={`contact-sec__form-side reveal-init ${isFormInView ? 'reveal-visible' : ''}`}
+          >
             <span className="section-tag section-tag--light">Hablemos</span>
             <h2 className="section-title section-title--light">Contactanos</h2>
             <div className="divider" />
@@ -38,7 +45,10 @@ export default function Contact() {
           </div>
 
           {/* Info Side */}
-          <div className="contact-sec__info-side">
+          <div 
+            ref={infoRef} 
+            className={`contact-sec__info-side reveal-init ${isInfoInView ? 'reveal-visible' : ''}`}
+          >
             <div className="contact-info-card">
               <h3 className="contact-info-card__title">Información de contacto</h3>
 
