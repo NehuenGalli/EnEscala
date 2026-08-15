@@ -56,8 +56,6 @@
 .preloader__logo-e {
   width: 160px;
   height: 130px;
-  filter: drop-shadow(0 0 20px rgba(204, 209, 46, 0.35));
-  -webkit-filter: drop-shadow(0 0 20px rgba(204, 209, 46, 0.35));
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -91,20 +89,19 @@
   animation-delay: 0.7s;
 }
 
-/* Brillo ambiental verde lima detrás del E_solo */
+/* Brillo ambiental suave circular detrás del logo */
 .preloader__glow {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 170px;
-  height: 170px;
+  width: 240px;
+  height: 240px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(204, 209, 46, 0.35) 0%, rgba(204, 209, 46, 0) 70%);
+  background: radial-gradient(circle, rgba(204, 209, 46, 0.14) 0%, rgba(204, 209, 46, 0) 70%);
   border-radius: 50%;
   animation: glowPulse 1.8s ease-in-out infinite alternate;
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  z-index: -1;
 }
 
 /* --- Texto de Marca --- */
