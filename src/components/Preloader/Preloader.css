@@ -12,14 +12,22 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease;
-  will-change: transform, opacity;
+  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
 }
 
 .preloader--hiding {
-  transform: translateY(-100%);
-  opacity: 0.95;
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.preloader--hiding .preloader__glow {
+  opacity: 0 !important;
+  transition: opacity 0.3s ease;
 }
 
 .preloader__content {
@@ -31,6 +39,8 @@
   text-align: center;
   position: relative;
   z-index: 2;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* --- Logo E_solo Container --- */
@@ -46,7 +56,11 @@
 .preloader__logo-e {
   width: 160px;
   height: 130px;
-  filter: drop-shadow(0 0 25px rgba(204, 209, 46, 0.45));
+  filter: drop-shadow(0 0 20px rgba(204, 209, 46, 0.35));
+  -webkit-filter: drop-shadow(0 0 20px rgba(204, 209, 46, 0.35));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   animation: logoPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -89,6 +103,8 @@
   border-radius: 50%;
   animation: glowPulse 1.8s ease-in-out infinite alternate;
   pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* --- Texto de Marca --- */
