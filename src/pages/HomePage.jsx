@@ -14,6 +14,9 @@ export default function HomePage() {
   useEffect(() => {
     if (location.state?.scrollToId) {
       const targetId = location.state.scrollToId;
+      // Limpiar el state del historial para que al volver atrás con el navegador no re-ejecute el scroll
+      window.history.replaceState({}, document.title);
+
       const timer = setTimeout(() => {
         const el = document.getElementById(targetId);
         if (el) {
@@ -29,7 +32,7 @@ export default function HomePage() {
       }, 150);
       return () => clearTimeout(timer);
     }
-  }, [location]);
+  }, [location.state]);
 
   return (
     <>

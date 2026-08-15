@@ -30,7 +30,15 @@ export default function Footer() {
             <div className="footer__social">
               <h4 className="footer__title">Redes Sociales</h4>
               <ul>
-                <li><a href="#instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/en_escala_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </li>
                 {/* <li><a href="#linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                 <li><a href="#facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li> */}
               </ul>

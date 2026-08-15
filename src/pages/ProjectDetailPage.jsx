@@ -17,6 +17,18 @@ export default function ProjectDetailPage() {
     ? project.gallery
     : (project?.image ? [project.image] : [heroBg]);
 
+  const handleImageLoad = (e) => {
+    const img = e.target;
+    if (img?.naturalWidth && img?.naturalHeight) {
+      const ratio = img.naturalWidth / img.naturalHeight;
+      const parent = img.parentElement;
+      if (parent) {
+        parent.style.flexGrow = ratio;
+        parent.style.flexBasis = `${Math.round(260 * ratio)}px`;
+      }
+    }
+  };
+
   const handlePrevImage = useCallback((e) => {
     e?.stopPropagation();
     setActiveImageIndex(prev => (prev === 0 ? galleryList.length - 1 : prev - 1));
@@ -103,25 +115,35 @@ export default function ProjectDetailPage() {
           </div>
         </div>
 
-        {/* Gallery */}
+        {/* Justified Gallery (Flickr / Google Photos Style) */}
         <section className="project-detail__gallery">
           <div className="container">
-            <h3 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>Galería de Imágenes</h3>
-            <div className="project-detail__gallery-grid">
+            <h3 className="section-title" style={{ fontSize: '2rem', marginBottom: '28px' }}>Galería de Imágenes</h3>
+            <div className="project-detail__gallery-justified">
               {galleryList.map((imgSrc, idx) => (
                 <div
                   key={idx}
-                  className="project-detail__gallery-item"
+                  className="project-detail__justified-item"
+                  style={{
+                    flexGrow: 1.4,
+                    flexBasis: '360px',
+                  }}
                   onClick={() => setActiveImageIndex(idx)}
                 >
-                  <img src={imgSrc} alt={`${project.title} - ${idx + 1}`} loading="lazy" />
-                  <div className="project-detail__gallery-overlay">
+                  <img
+                    src={imgSrc}
+                    alt={`${project.title} - ${idx + 1}`}
+                    loading="lazy"
+                    onLoad={handleImageLoad}
+                  />
+                  <div className="project-detail__justified-overlay">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="8"></circle>
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       <line x1="11" y1="8" x2="11" y2="14"></line>
                       <line x1="8" y1="11" x2="14" y2="11"></line>
                     </svg>
+                    <span className="project-detail__justified-overlay-text">Ampliar imagen</span>
                   </div>
                 </div>
               ))}

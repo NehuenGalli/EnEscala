@@ -1,15 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useLocation, useNavigationType } from 'react-router-dom';
+
+// Persist scroll positions across page component mounts/unmounts
+const scrollPositionsMap = new Map();
 
 export default function ScrollToTop() {
   const { pathname, key } = useLocation();
   const navType = useNavigationType(); // 'POP' (back/forward), 'PUSH' (link click), or 'REPLACE'
-  const scrollPositions = useRef({});
 
-  // Guardar la posición de scroll antes de cambiar de página
+  // Guardar la posición de scroll en cada movimiento
   useEffect(() => {
     const handleScroll = () => {
-      scrollPositions.current[key] = window.scrollY;
+      scrollPositionsMap.set(key, window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -19,12 +21,14 @@ export default function ScrollToTop() {
   useEffect(() => {
     // Si el usuario usó el botón de "Atrás" o "Adelante" del navegador (POP)
     if (navType === 'POP') {
-      const savedPosition = scrollPositions.current[key];
+      const savedPosition = scrollPositionsMap.get(key);
       if (savedPosition !== undefined) {
-        window.scrollTo({
-          top: savedPosition,
-          left: 0,
-          behavior: 'instant'
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: savedPosition,
+            left: 0,
+            behavior: 'instant'
+          });
         });
         return;
       }

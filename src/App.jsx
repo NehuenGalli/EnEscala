@@ -5,6 +5,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import AllProjectsPage from './pages/AllProjectsPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import Preloader from './components/Preloader/Preloader';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,7 @@ function App() {
     <>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/proyecto/:slug" element={<ProjectDetailPage />} />

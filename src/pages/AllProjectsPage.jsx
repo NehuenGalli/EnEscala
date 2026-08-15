@@ -31,31 +31,20 @@ export default function AllProjectsPage() {
           </div>
         </div>
 
-        <div className="container section">
-          {/* Filters */}
-          {/* <div className="all-projects__filters">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                className={`all-projects__filter-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div> */}
+        <section className="all-projects__content">
+          <div className="container">
+            {/* Grid */}
+            <div className="all-projects__grid">
+              {projects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
 
-          {/* Grid */}
-          <div className="all-projects__grid">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
+            {projects.length === 0 && (
+              <p className="all-projects__empty">No hay proyectos en esta categoría por el momento.</p>
+            )}
           </div>
-
-          {projects.length === 0 && (
-            <p className="all-projects__empty">No hay proyectos en esta categoría por el momento.</p>
-          )}
-        </div>
+        </section>
 
       </main>
 

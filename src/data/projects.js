@@ -8,7 +8,23 @@ const gygImages = import.meta.glob('../assets/Images/ObraGYG/*.webp', { eager: t
 const guacciImages = import.meta.glob('../assets/Images/ObraGUACCI/*.webp', { eager: true, import: 'default' });
 const kovachImages = import.meta.glob('../assets/Images/ObraKOVACH/*.webp', { eager: true, import: 'default' });
 
-const getImages = (globResult) => Object.values(globResult);
+const extractImageNumber = (path) => {
+  const filename = path.split('/').pop() || '';
+  const match = filename.match(/^[^\d]*(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
+};
+
+// Ordena estrictamente las imágenes según la numeración de los archivos (1, 2, 3, ... 10, 11, etc.)
+const getImages = (globResult) => {
+  return Object.entries(globResult)
+    .sort(([pathA], [pathB]) => {
+      const numA = extractImageNumber(pathA);
+      const numB = extractImageNumber(pathB);
+      if (numA !== numB) return numA - numB;
+      return pathA.localeCompare(pathB, undefined, { numeric: true, sensitivity: 'base' });
+    })
+    .map(([, mod]) => mod);
+};
 
 export const projects = [
   {
@@ -21,8 +37,8 @@ export const projects = [
     area: '25.00 m²',
     location: 'Barrio Cerrado “Nuevo Quilmes”, partido de Quilmes',
     fullDescription: 'La premisa para este proyecto era ampliar una galería frecuentemente utilizada para fechas festivas y que por sus dimensiones estaba quedando chica y hacerlo con los propietarios viviendo en el lugar. El proyecto contempló agrandar apenas 1 metro todo el ancho de la galería, pero remodelar todo el espacio.Aparte de incluir un baño para uso exterior, se tuvo que cambiar piso, cielorrasos, iluminación, instalaciones, generar una mesada de trabajo y reestructurar todo el sector de parrilla, terminando por circunscribir todo el espacio con un cerramiento vidriado plegable.Para generar la convivencia de ese espacio con el exterior y la pileta, la idea fue no obstruir las vistas hacia ella, lo que llevo como respuesta de diseño desmaterializar el ángulo hacia ese sector, y con la finalidad de adecuar lo ampliado con el resto de la vivienda, se pintaron y revistieron todas las superficies restantes de la misma.',
-    featured: true,
-    image: getImages(lanImages)[7] || null,
+    featured: false,
+    image: getImages(lanImages)[0] || null,
     gallery: getImages(lanImages),
   },
   {
@@ -37,7 +53,7 @@ export const projects = [
     fullDescription:
       'Implantada sobre un amplio terreno en un club de campo y con el propósito de ser usada sólo los fines de semana, la vivienda Gorosito desarrolla su programa en una sola planta y organiza los espacios públicos en sentido transversal al terreno con la finalidad de generar un diálogo constante con el parque y la gran piscina.',
     featured: true,
-    image: getImages(gorositoImages)[4] || null,
+    image: getImages(gorositoImages)[0] || null,
     gallery: getImages(gorositoImages),
   },
   {
@@ -81,8 +97,8 @@ export const projects = [
     location: 'Barrio Cerrado “Nuevo Quilmes”, partido de Quilmes',
     fullDescription:
       '“Quiero estar acá y sentirme en Londres”. Ésas fueron las primeras palabras de la propietaria que dieron puntapié a este diseño de vivienda. Con el lago cómo paisaje natural de fondo, la casa de grandes dimensiones de espacios públicos, dialoga constantemente con él, abriendo grandes ventanales hacia ese sector. La piedra es la protagonista en todas las fachadas, que, con los techos quebrados de gran pendiente, la carpintería de vidrio repartido, los trabajos de zinguería y elementos ornamentales terminan de dar el carácter inglés a toda la edificación.',
-    featured: false,
-    image: getImages(vnqImages)[7],
+    featured: true,
+    image: getImages(vnqImages)[0] || null,
     gallery: getImages(vnqImages),
   },
   {
@@ -117,7 +133,7 @@ export const projects = [
   {
     id: 8,
     slug: 'Casa-KOVACH',
-    title: 'Casa KOVACH',
+    title: 'Piscina Kovach',
     category: 'Residencial',
     type: 'Proyecto y Dirección de Obra',
     year: '2023',
@@ -125,7 +141,7 @@ export const projects = [
     location: 'Barrio Cerrado “Nuevo Quilmes”, partido de Quilmes',
     fullDescription: 'El encargo de los propietarios se centró en la construcción de una pileta de natación para construir en el patio de la vivienda existente así de esa manera, aprovechar más su uso en época de verano. De hormigón armado revestida en venecitas cómo características constructivas fundamentales, la pileta se complementa con un solárium y una cascada a modo de cortina de fondo para toda la construcción.',
     featured: false,
-    image: getImages(kovachImages)[3] || null,
+    image: getImages(kovachImages)[0] || null,
     gallery: getImages(kovachImages),
   },
 ];

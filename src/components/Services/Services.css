@@ -55,7 +55,7 @@
   .service-item:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(141, 194, 31, 0.25);
+    border-color: rgba(var(--color-primary-rgb), 0.35);
   }
 }
 

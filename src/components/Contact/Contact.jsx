@@ -1,41 +1,73 @@
 import './Contact.css';
+import { useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 
 export default function Contact() {
   const [formRef, isFormInView] = useInView({ threshold: 0.15, once: true });
   const [infoRef, isInfoInView] = useInView({ threshold: 0.15, once: true });
 
+  const [formData, setFormData] = useState({
+    name: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.message.trim()) return;
+
+    const phone = '5491165229301';
+    const text = `Hola! Mi nombre es *${formData.name.trim()}*.\n\n*Consulta:* ${formData.message.trim()}`;
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="contacto" className="section section--dark contact-sec">
       <div className="container">
         <div className="contact-sec__inner">
           {/* Form Side */}
-          <div 
-            ref={formRef} 
+          <div
+            ref={formRef}
             className={`contact-sec__form-side reveal-init ${isFormInView ? 'reveal-visible' : ''}`}
           >
             <span className="section-tag section-tag--light">Hablemos</span>
             <h2 className="section-title section-title--light">Contactanos</h2>
             <div className="divider" />
             <p className="section-subtitle section-subtitle--light">
-              Dejanos tu consulta y nos comunicaremos a la brevedad para asesorarte.
+              Dejanos tu consulta y te responderemos por WhatsApp a la brevedad para asesorarte.
             </p>
 
-            <form
-              className="contact-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert('Formulario de demostración. No se enviaron datos.');
-              }}
-            >
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="contact-form__group">
                 <label htmlFor="name" className="contact-form__label">Nombre completo</label>
-                <input type="text" id="name" className="contact-form__input" placeholder="Tu nombre" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="contact-form__input"
+                  placeholder="Tu nombre"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="contact-form__group">
                 <label htmlFor="message" className="contact-form__label">Mensaje</label>
-                <textarea id="message" className="contact-form__input contact-form__textarea" placeholder="Contanos sobre tu proyecto..." required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  className="contact-form__input contact-form__textarea"
+                  placeholder="Contanos sobre tu proyecto o consulta..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <button type="submit" className="btn btn-primary contact-form__submit">
@@ -45,8 +77,8 @@ export default function Contact() {
           </div>
 
           {/* Info Side */}
-          <div 
-            ref={infoRef} 
+          <div
+            ref={infoRef}
             className={`contact-sec__info-side reveal-init ${isInfoInView ? 'reveal-visible' : ''}`}
           >
             <div className="contact-info-card">
@@ -60,8 +92,15 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <span className="contact-info-label">Teléfono</span>
-                    <a href="tel:+541112345678" className="contact-info-value">+54 11 1234-5678</a>
+                    <span className="contact-info-label">WhatsApp / Teléfono</span>
+                    <a
+                      href="https://wa.me/5491165229301"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-info-value"
+                    >
+                      +54 11 6522-9301
+                    </a>
                   </div>
                 </li>
 
@@ -74,7 +113,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="contact-info-label">Email</span>
-                    <a href="mailto:hola@enescala.com.ar" className="contact-info-value">hola@gmail.com</a>
+                    <a href="mailto:estudioenescala@gmail.com" className="contact-info-value">estudioenescala@gmail.com</a>
                   </div>
                 </li>
 
@@ -95,8 +134,14 @@ export default function Contact() {
               <div className="contact-social">
                 <span className="contact-social__title">Seguinos</span>
                 <div className="contact-social__links">
-                  <a href="#instagram" className="contact-social__link" aria-label="Instagram">
-                    @Instagram
+                  <a
+                    href="https://www.instagram.com/en_escala_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social__link"
+                    aria-label="Instagram @en_escala_"
+                  >
+                    @en_escala_
                   </a>
                 </div>
               </div>

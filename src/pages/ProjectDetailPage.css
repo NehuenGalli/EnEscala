@@ -112,74 +112,105 @@
   white-space: pre-line;
 }
 
-/* --- Gallery (Natural Aspect Ratio Masonry) --- */
+/* --- Justified Layout Gallery (Google Photos / Flickr Style) --- */
 .project-detail__gallery {
   padding-bottom: var(--space-4xl);
   margin-bottom: var(--space-2xl);
 }
 
-.project-detail__gallery-grid {
-  column-count: 3;
-  column-gap: var(--space-md);
+.project-detail__gallery-justified {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   width: 100%;
 }
 
-.project-detail__gallery-item {
+/* Pseudo-elemento que absorbe el espacio sobrante en la última fila */
+.project-detail__gallery-justified::after {
+  content: '';
+  flex-grow: 999999999;
+  min-width: 120px;
+  height: 0;
+}
+
+.project-detail__justified-item {
   position: relative;
-  break-inside: avoid;
-  margin-bottom: var(--space-lg);
-  border-radius: var(--radius-sm);
+  height: 280px;
+  max-height: 360px;
+  border-radius: var(--radius-md, 8px);
   overflow: hidden;
   cursor: pointer;
   background-color: var(--color-off-white);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.20);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  content-visibility: auto;
+  contain-intrinsic-size: 280px 360px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-detail__gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+.project-detail__justified-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  z-index: 2;
 }
 
-.project-detail__gallery-item img {
+.project-detail__justified-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s ease;
 }
 
-.project-detail__gallery-item:hover img {
-  transform: scale(1.02);
+.project-detail__justified-item:hover img {
+  transform: scale(1.03);
 }
 
 /* Hover overlay */
-.project-detail__gallery-overlay {
+.project-detail__justified-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(17, 17, 17, 0.35);
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.7) 0%, rgba(17, 17, 17, 0.1) 50%, rgba(17, 17, 17, 0.2) 100%);
   opacity: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease;
+  gap: 6px;
+  transition: opacity 0.25s ease;
+  z-index: 2;
 }
 
-.project-detail__gallery-item:hover .project-detail__gallery-overlay {
+.project-detail__justified-item:hover .project-detail__justified-overlay {
   opacity: 1;
 }
 
-.project-detail__gallery-overlay svg {
-  width: 32px;
-  height: 32px;
+.project-detail__justified-overlay svg {
+  width: 28px;
+  height: 28px;
   color: #fff;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
-  transform: scale(0.85);
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  transform: scale(0.9);
+  transition: transform 0.25s ease;
 }
 
-.project-detail__gallery-item:hover .project-detail__gallery-overlay svg {
+.project-detail__justified-item:hover .project-detail__justified-overlay svg {
   transform: scale(1);
+}
+
+.project-detail__justified-overlay-text {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transform: translateY(3px);
+  transition: transform 0.25s ease;
+}
+
+.project-detail__justified-item:hover .project-detail__justified-overlay-text {
+  transform: translateY(0);
 }
 
 /* --- Lightbox Modal --- */
@@ -319,8 +350,8 @@
     gap: var(--space-xl);
   }
 
-  .project-detail__gallery-grid {
-    column-count: 2;
+  .project-detail__justified-item {
+    height: 230px;
   }
 
   .project-detail__content {
@@ -329,8 +360,13 @@
 }
 
 @media (max-width: 600px) {
-  .project-detail__gallery-grid {
-    column-count: 1;
+  .project-detail__gallery-justified {
+    gap: 8px;
+  }
+
+  .project-detail__justified-item {
+    height: 180px;
+    flex-grow: 1 !important;
   }
 
   .lightbox-modal__nav {

@@ -40,8 +40,15 @@
 }
 
 .navbar__logo img {
-  height: 44px;
+  height: 54px;
   width: auto;
+  transition: transform var(--transition-fast);
+}
+
+@media (max-width: 1024px) {
+  .navbar__logo img {
+    height: 48px;
+  }
 }
 
 /* --- Desktop links --- */

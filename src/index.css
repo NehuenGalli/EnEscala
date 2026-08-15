@@ -6,11 +6,20 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Colors */
+  /* Colors — Paleta oficial basada en el logo SVG (#CCD12E) */
+  --color-primary: #CCD12E;
+  --color-primary-dark: #A3A81D;
+  --color-primary-light: #E2E570;
+  --color-primary-bg: #f8f9e6;
+  --color-primary-rgb: 204, 209, 46;
+
+  /* PALETA ANTERIOR (Guardada como respaldo para restaurar fácilmente si el cliente lo prefiere)
   --color-primary: #8DC21F;
   --color-primary-dark: #6A9918;
   --color-primary-light: #C5D8A0;
   --color-primary-bg: #f4f9eb;
+  --color-primary-rgb: 141, 194, 31;
+  */
 
   --color-dark: #1E1E1E;
   --color-dark-mid: #2B2B2B;
@@ -72,7 +81,7 @@
   --transition-slow: 400ms var(--ease-out);
 
   /* Navbar */
-  --navbar-height: 72px;
+  --navbar-height: 80px;
 }
 
 /* --- Reset --- */
@@ -216,7 +225,8 @@ h6 {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: #181818;
+  font-weight: 700;
   border: 2px solid var(--color-primary);
 }
 
@@ -224,8 +234,9 @@ h6 {
   .btn-primary:hover {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(141, 194, 31, 0.32);
+    box-shadow: 0 8px 24px rgba(var(--color-primary-rgb), 0.35);
   }
 }
 

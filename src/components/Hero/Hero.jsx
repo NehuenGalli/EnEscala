@@ -1,7 +1,21 @@
 import './Hero.css';
-import heroBg from '../../assets/hero-bg.jpg';
+import { useState, useEffect } from 'react';
+import bgOption1 from '../../assets/test1.png';
+import bgOption2 from '../../assets/FondoEnEscala.jpeg';
+
+const backgrounds = [bgOption1, bgOption2];
 
 export default function Hero() {
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex(prev => (prev === 0 ? 1 : 0));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -11,9 +25,19 @@ export default function Hero() {
     <section
       id="inicio"
       className="hero"
-      style={{ backgroundImage: `url(${heroBg})` }}
       aria-label="Sección principal"
     >
+      {/* Background Slides with crossfade transition */}
+      <div className="hero__backgrounds" aria-hidden="true">
+        {backgrounds.map((bg, idx) => (
+          <div
+            key={idx}
+            className={`hero__bg-slide ${idx === currentBgIndex ? 'hero__bg-slide--active' : ''}`}
+            style={{ backgroundImage: `url(${bg})` }}
+          />
+        ))}
+      </div>
+
       {/* Overlay gradiente */}
       <div className="hero__overlay" />
 
@@ -31,11 +55,6 @@ export default function Hero() {
         {/* Tag */}
         <span className="hero__tag">EnEscala, Estudio de Arquitectura</span>
 
-        {/* Subtitle
-        <p className="hero__subtitle">
-          Transformamos ideas en obras. Arquitectura contemporánea con identidad, precisión técnica y atención al detalle.
-        </p> */}
-
         {/* CTA buttons */}
         <div className="hero__actions">
           <button
@@ -51,6 +70,19 @@ export default function Hero() {
             Contactanos
           </button>
         </div>
+      </div>
+
+      {/* Selector interactivo para cambiar entre los dos fondos */}
+      <div className="hero__bg-controls" aria-label="Cambiar fondo">
+        {backgrounds.map((_, idx) => (
+          <button
+            key={idx}
+            className={`hero__bg-dot ${idx === currentBgIndex ? 'hero__bg-dot--active' : ''}`}
+            onClick={() => setCurrentBgIndex(idx)}
+            aria-label={`Ver fondo opción ${idx + 1}`}
+            title={`Opción ${idx + 1}`}
+          />
+        ))}
       </div>
 
       {/* Scroll indicator */}
