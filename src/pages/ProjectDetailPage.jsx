@@ -102,7 +102,17 @@ export default function ProjectDetailPage() {
               </div>
               <div className="project-detail__meta-item">
                 <span className="project-detail__meta-label">Superficie</span>
-                <span className="project-detail__meta-value">{project.area}</span>
+                <div className="project-detail__meta-value project-detail__meta-value--area">
+                  {project.area.includes(',') ? (
+                    project.area.split(',').map((part, i) => (
+                      <span key={i} className="project-detail__area-line">
+                        {part.trim()}
+                      </span>
+                    ))
+                  ) : (
+                    <span>{project.area}</span>
+                  )}
+                </div>
               </div>
             </aside>
 

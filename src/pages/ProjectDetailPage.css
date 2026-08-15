@@ -98,6 +98,16 @@
   font-weight: 500;
 }
 
+.project-detail__meta-value--area {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.project-detail__area-line {
+  display: block;
+}
+
 /* Main Info */
 .project-detail__subtitle {
   font-family: var(--font-heading);

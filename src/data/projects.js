@@ -78,7 +78,7 @@ export const projects = [
     category: 'Comercial',
     type: 'Proyecto y Dirección de obra',
     year: '2019',
-    area: 'Sin cubierta: 10.46 m², Cubieta: 180.71 m2',
+    area: 'Sin cubierta: 10.46 m², Cubierta: 180.71 m2',
     location: 'Barrio Cerrado “Nuevo Quilmes”, partido de Quilmes',
     fullDescription:
       'Simpleza y rapidez de ejecución fueron dos premisas elementales a la hora de arrancar con este proyecto. Desarrollada en una sola planta, los espacios públicos de esta vivienda fueron abiertos hacia las zonas con mejor iluminación natural, concentrando la parte privada en un ala que intenta invadir lo menos posible el fondo del terreno, pero que dialoga con este a través de la habitación en suite. El pórtico de acceso rompe la tranquilidad de la fachada y toma importancia con el revestimiento de piedra colocado a modo de murete.',
