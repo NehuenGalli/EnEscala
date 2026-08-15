@@ -71,7 +71,7 @@ export default function Contact() {
               </div>
 
               <button type="submit" className="btn btn-primary contact-form__submit">
-                Enviar mensaje por WhatsApp
+                Enviar por WhatsApp
               </button>
             </form>
           </div>
