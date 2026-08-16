@@ -1,27 +1,23 @@
 import './ProjectCard.css';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import heroBg from '../../assets/hero-bg.jpg';
 
 export default function ProjectCard({ project, index = 0 }) {
-  const navigate = useNavigate();
   const image = project.image || heroBg;
 
   return (
-    <article
+    <Link
+      to={`/proyecto/${project.slug}`}
       className="project-card"
       id={`project-${project.slug}`}
       style={{ animationDelay: `${index * 0.1}s` }}
-      onClick={() => navigate(`/proyecto/${project.slug}`)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={e => e.key === 'Enter' && navigate(`/proyecto/${project.slug}`)}
       aria-label={`Ver proyecto: ${project.title}`}
     >
       {/* Image */}
       <div className="project-card__img-wrap">
         <img
           src={image}
-          alt={project.title}
+          alt={`${project.title} - ${project.type} | En Escala Arquitectura`}
           className="project-card__img"
           loading="lazy"
         />
@@ -29,8 +25,6 @@ export default function ProjectCard({ project, index = 0 }) {
         <div className="project-card__overlay">
           <span className="project-card__overlay-btn">Ver proyecto →</span>
         </div>
-        {/* Category badge */}
-        {/* <span className="project-card__badge">{project.category}</span> */}
       </div>
 
       {/* Info */}
@@ -41,13 +35,12 @@ export default function ProjectCard({ project, index = 0 }) {
         </div>
         <h3 className="project-card__title">{project.title}</h3>
         <p className="project-card__area">{project.location}</p>
-        {/* <p className="project-card__desc">{project.description}</p> */}
 
         <div className="project-card__cta">
           <span>Ver proyecto</span>
           <span className="project-card__arrow" aria-hidden="true">&rarr;</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

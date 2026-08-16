@@ -4,6 +4,8 @@ import { servicesData } from '../data/services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import SEO from '../components/SEO/SEO';
+import { SITE_CONFIG, getCanonicalUrl } from '../config/siteConfig';
 import logoE from '../assets/Logo EN ESCALA TEXTO F.svg';
 
 export default function ServiceDetailPage() {
@@ -14,8 +16,61 @@ export default function ServiceDetailPage() {
     return <Navigate to="/#servicios" replace />;
   }
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': service.title,
+    'description': service.description,
+    'provider': {
+      '@type': 'ArchitecturalFirm',
+      'name': SITE_CONFIG.siteName,
+      'telephone': SITE_CONFIG.contact.phone,
+      'email': SITE_CONFIG.contact.email,
+      'url': SITE_CONFIG.siteUrl
+    },
+    'areaServed': SITE_CONFIG.serviceAreas.map(area => ({
+      '@type': 'AdministrativeArea',
+      'name': area
+    })),
+    'url': getCanonicalUrl(`/servicio/${service.slug}`),
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Inicio',
+          'item': getCanonicalUrl('/')
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': 'Servicios',
+          'item': getCanonicalUrl('/#servicios')
+        },
+        {
+          '@type': 'ListItem',
+          'position': 3,
+          'name': service.title,
+          'item': getCanonicalUrl(`/servicio/${service.slug}`)
+        }
+      ]
+    }
+  };
+
+  const seoDescription = service.description
+    ? (service.description.length > 155 ? `${service.description.slice(0, 152)}...` : service.description)
+    : `${service.title} - Estudio de arquitectura En Escala en Buenos Aires.`;
+
   return (
     <>
+      <SEO
+        title={`${service.title} | Servicios de Arquitectura`}
+        description={seoDescription}
+        image={service.bgImage}
+        type="article"
+        schema={serviceSchema}
+      />
       <ScrollToTop />
       <Navbar />
 

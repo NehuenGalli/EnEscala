@@ -1,10 +1,12 @@
 import './ProjectDetailPage.css';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import SEO from '../components/SEO/SEO';
+import { SITE_CONFIG, getCanonicalUrl } from '../config/siteConfig';
 import heroBg from '../assets/hero-bg.jpg';
 
 export default function ProjectDetailPage() {
@@ -29,28 +31,30 @@ export default function ProjectDetailPage() {
     }
   };
 
-  const handlePrevImage = useCallback((e) => {
-    e?.stopPropagation();
-    setActiveImageIndex(prev => (prev === 0 ? galleryList.length - 1 : prev - 1));
-  }, [galleryList.length]);
+  const totalImages = galleryList.length;
 
-  const handleNextImage = useCallback((e) => {
+  const handlePrevImage = (e) => {
     e?.stopPropagation();
-    setActiveImageIndex(prev => (prev === galleryList.length - 1 ? 0 : prev + 1));
-  }, [galleryList.length]);
+    setActiveImageIndex(prev => (prev === 0 ? totalImages - 1 : prev - 1));
+  };
 
-  const handleCloseModal = useCallback(() => {
+  const handleNextImage = (e) => {
+    e?.stopPropagation();
+    setActiveImageIndex(prev => (prev === totalImages - 1 ? 0 : prev + 1));
+  };
+
+  const handleCloseModal = () => {
     setActiveImageIndex(null);
-  }, []);
+  };
 
   // Keyboard navigation (Escape to close, Left/Right arrows to navigate)
   useEffect(() => {
     if (activeImageIndex === null) return;
 
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') handleCloseModal();
-      if (e.key === 'ArrowLeft') handlePrevImage();
-      if (e.key === 'ArrowRight') handleNextImage();
+      if (e.key === 'Escape') setActiveImageIndex(null);
+      if (e.key === 'ArrowLeft') setActiveImageIndex(prev => (prev === 0 ? totalImages - 1 : prev - 1));
+      if (e.key === 'ArrowRight') setActiveImageIndex(prev => (prev === totalImages - 1 ? 0 : prev + 1));
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -60,7 +64,7 @@ export default function ProjectDetailPage() {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
     };
-  }, [activeImageIndex, handleCloseModal, handlePrevImage, handleNextImage]);
+  }, [activeImageIndex, totalImages]);
 
   if (!project) {
     return <Navigate to="/proyectos" replace />;
@@ -68,8 +72,60 @@ export default function ProjectDetailPage() {
 
   const image = project.image || heroBg;
 
+  // Schema estructurado para el proyecto
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'VisualArtwork',
+    'name': project.title,
+    'description': project.fullDescription,
+    'artMedium': 'Arquitectura y Construcción',
+    'creator': {
+      '@type': 'ArchitecturalFirm',
+      'name': SITE_CONFIG.siteName
+    },
+    'locationCreated': {
+      '@type': 'Place',
+      'name': project.location
+    },
+    'url': getCanonicalUrl(`/proyecto/${project.slug}`),
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Inicio',
+          'item': getCanonicalUrl('/')
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': 'Proyectos',
+          'item': getCanonicalUrl('/proyectos')
+        },
+        {
+          '@type': 'ListItem',
+          'position': 3,
+          'name': project.title,
+          'item': getCanonicalUrl(`/proyecto/${project.slug}`)
+        }
+      ]
+    }
+  };
+
+  const seoDescription = project.fullDescription 
+    ? (project.fullDescription.length > 155 ? `${project.fullDescription.slice(0, 152)}...` : project.fullDescription)
+    : `${project.title} - ${project.type} en ${project.location}. En Escala Arquitectura.`;
+
   return (
     <>
+      <SEO
+        title={`${project.title} | ${project.type}`}
+        description={seoDescription}
+        image={project.image}
+        type="article"
+        schema={projectSchema}
+      />
       <ScrollToTop />
       <Navbar />
 
@@ -142,7 +198,7 @@ export default function ProjectDetailPage() {
                 >
                   <img
                     src={imgSrc}
-                    alt={`${project.title} - ${idx + 1}`}
+                    alt={`${project.title} - ${project.type} (${idx + 1} de ${galleryList.length}) | En Escala Arquitectura`}
                     loading="lazy"
                     onLoad={handleImageLoad}
                   />
@@ -197,7 +253,7 @@ export default function ProjectDetailPage() {
             >
               <img
                 src={galleryList[activeImageIndex]}
-                alt={`${project.title} - vista ampliada ${activeImageIndex + 1}`}
+                alt={`${project.title} - Vista ampliada (${activeImageIndex + 1} de ${galleryList.length}) | En Escala Arquitectura`}
                 className="lightbox-modal__img"
               />
             </div>

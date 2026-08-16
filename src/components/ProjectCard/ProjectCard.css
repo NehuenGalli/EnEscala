@@ -9,6 +9,8 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   box-shadow: var(--shadow-md);
   will-change: transform;

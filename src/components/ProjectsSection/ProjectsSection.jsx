@@ -1,11 +1,10 @@
 import './ProjectsSection.css';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import { projects } from '../../data/projects';
 import { useInView } from '../../hooks/useInView';
 
 export default function ProjectsSection() {
-  const navigate = useNavigate();
   // Mostrar solo los proyectos destacados en la home (max 3)
   const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
   
@@ -25,12 +24,12 @@ export default function ProjectsSection() {
             <h2 className="section-title">Proyectos Destacados</h2>
             <div className="divider" />
           </div>
-          <button 
+          <Link 
+            to="/proyectos"
             className="btn btn-outline--dark btn btn-outline" 
-            onClick={() => navigate('/proyectos')}
           >
             Ver todos los proyectos
-          </button>
+          </Link>
         </div>
 
         {/* Grid */}
@@ -45,12 +44,12 @@ export default function ProjectsSection() {
 
         {/* Mobile button */}
         <div className="projects-sec__mobile-action">
-          <button 
+          <Link 
+            to="/proyectos"
             className="btn btn-outline--dark btn btn-outline" 
-            onClick={() => navigate('/proyectos')}
           >
             Ver todos los proyectos
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,22 +1,45 @@
 import './AllProjectsPage.css';
-import { useState } from 'react';
 import { projects } from '../data/projects';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
-
-const categories = ['Todos', 'Residencial', 'Comercial', 'Institucional'];
+import SEO from '../components/SEO/SEO';
+import { getCanonicalUrl } from '../config/siteConfig';
 
 export default function AllProjectsPage() {
-  // const [activeCategory, setActiveCategory] = useState('Todos');
-
-  // const filteredProjects = activeCategory === 'Todos'
-  //   ? projects
-  //   : projects.filter(p => p.category === activeCategory);
+  const projectsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Todos los Proyectos | En Escala Arquitectura',
+    'description': 'Explorá nuestro archivo completo de obras y proyectos. Cada diseño refleja nuestro compromiso con la calidad espacial y constructiva.',
+    'url': getCanonicalUrl('/proyectos'),
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Inicio',
+          'item': getCanonicalUrl('/')
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': 'Proyectos',
+          'item': getCanonicalUrl('/proyectos')
+        }
+      ]
+    }
+  };
 
   return (
     <>
+      <SEO
+        title="Todos los Proyectos | Portafolio de Obras"
+        description="Explorá nuestro archivo completo de obras y proyectos. Cada diseño refleja nuestro compromiso con la calidad espacial y constructiva."
+        schema={projectsSchema}
+      />
       <ScrollToTop />
       <Navbar />
 

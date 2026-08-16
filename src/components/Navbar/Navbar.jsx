@@ -23,11 +23,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Cerrar menú al cambiar de ruta
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location]);
-
   // Bloquear scroll del body al abrir el menú desplegable en mobile/tablet
   useEffect(() => {
     if (menuOpen) {
