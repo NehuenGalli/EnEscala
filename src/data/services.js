@@ -27,7 +27,7 @@ export const servicesData = [
     title: 'Dirección de Obra',
     bgImage: fondoDireccion,
     description: 'Acompañamos en todo el proceso de la obra, coordinando, administrando y supervisando los trabajos necesarios para que mantengan los estándares de calidad, costo y tiempo estipulados.',
-    descriptionCard: 'Aportamos nuestros conocimientos y experiencia para llevar a cabo una dirección de obra en tiempo y forma,  y poder de ésta manera hacer real el proyecto tal cual fue pactado.',
+    descriptionCard: 'Aportamos nuestros conocimientos y experiencia para llevar a cabo una dirección de obra en tiempo y forma,  y poder de esta manera hacer real el proyecto tal cual fue pactado.',
     listTitle: 'Algunas de las tareas realizadas son:',
     listItems: [
       'Supervisión de la obra para que cumpla con los planos estipulados.',
@@ -56,7 +56,7 @@ export const servicesData = [
       },
       {
         label: 'PEQUEÑAS OBRAS',
-        text: 'aplicando nuestro profesionalismo y entusiasmo ante cualquier trabajo, y estando atento a todos los detalles y terminaciones posibles.'
+        text: 'aplicando nuestro profesionalismo y entusiasmo ante cualquier trabajo, y estando atentos a todos los detalles y terminaciones posibles.'
       }
     ],
     listTitle: 'En esta labor nos dedicamos a la:',
@@ -84,7 +84,7 @@ export const servicesData = [
   {
     id: 'srv-5',
     slug: 'tramites-de-habilitaciones',
-    title: 'Tramites de Habilitaciones',
+    title: 'Trámites de Habilitaciones',
     bgImage: fondoTramites,
     description: 'Gestionamos y tramitamos todas las habilitaciones y permisos ante los diferentes organismos municipales y provinciales, asegurando que cada proyecto cumpla con las normativas locales y reglamentaciones de seguridad.',
     descriptionCard: 'Nos encargamos de los permisos correspondientes para que cada obra cumpla con las reglamentaciones y pueda ser aprobada en tiempo y forma en los organismos correspondientes.',
@@ -102,7 +102,7 @@ export const servicesData = [
     title: 'Diseño Interior y Mobiliarios',
     bgImage: fondoDiseno,
     description: 'Cada espacio debe tener su tratamiento, y estar pensado según los gustos y necesidades de cada cliente. Diseñamos cada uno de esos espacios y mobiliarios para crear entornos funcionales y estéticamente atractivos que mejoren la calidad de vida.',
-    descriptionCard: 'Mediantes software especializado ayudamos en la materialización de cada uno de los espacios para que de ésta manera, podamos analizar variables de diseño y saber con anticipación cómo terminarán quedando.',
+    descriptionCard: 'Mediante software especializado ayudamos en la materialización de cada uno de los espacios para que de esta manera, podamos analizar variables de diseño y saber con anticipación cómo terminarán quedando.',
     listTitle: 'Entregamos:',
     listItems: [
       'Planos 2D y renderizados de las áreas solicitadas.'

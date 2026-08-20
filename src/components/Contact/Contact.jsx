@@ -126,7 +126,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="contact-info-label">Estudio</span>
-                    <span className="contact-info-value">CABA, Buenos Aires, Argentina</span>
+                    <span className="contact-info-value">AMBA, Buenos Aires, Argentina</span>
                   </div>
                 </li>
               </ul>
