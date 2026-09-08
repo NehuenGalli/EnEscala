@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footer__brand">
             <img src={logoE} alt="En Escala Logo" className="footer__logo" />
             <p className="footer__desc">
-              El estudio EnEscala se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura
+              El estudio Rel Arquitectura se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copy">
-            &copy; {currentYear} EnEscala Arquitectura. Todos los derechos reservados.
+            &copy; {currentYear} Rel Arquitectura. Todos los derechos reservados.
           </p>
           {/* <p className="footer__credits">
             Diseño por <span className="footer__credits-name">En Escala</span>
