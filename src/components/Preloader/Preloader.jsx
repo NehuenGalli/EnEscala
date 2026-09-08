@@ -56,7 +56,7 @@ export default function Preloader({ onComplete }) {
 
         {/* Texto de Marca */}
         <div className="preloader__text">
-          <span className="preloader__title">EN ESCALA</span>
+          <span className="preloader__title">REL</span>
           <span className="preloader__subtitle">ARQUITECTURA</span>
         </div>
 

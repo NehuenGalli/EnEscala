@@ -113,7 +113,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="contact-info-label">Email</span>
-                    <a href="mailto:estudioenescala@gmail.com" className="contact-info-value">estudioenescala@gmail.com</a>
+                    <a href="mailto:relestudioarquitectura@gmail.com" className="contact-info-value">relestudioarquitectura@gmail.com</a>
                   </div>
                 </li>
 
@@ -126,7 +126,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="contact-info-label">Estudio</span>
-                    <span className="contact-info-value">CABA, Buenos Aires, Argentina</span>
+                    <span className="contact-info-value">AMBA, Buenos Aires, Argentina</span>
                   </div>
                 </li>
               </ul>
@@ -135,13 +135,13 @@ export default function Contact() {
                 <span className="contact-social__title">Seguinos</span>
                 <div className="contact-social__links">
                   <a
-                    href="https://www.instagram.com/en_escala_/"
+                    href="https://www.instagram.com/relArquitectura/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-social__link"
-                    aria-label="Instagram @en_escala_"
+                    aria-label="Instagram @relArquitectura"
                   >
-                    @en_escala_
+                    @relArquitectura
                   </a>
                 </div>
               </div>

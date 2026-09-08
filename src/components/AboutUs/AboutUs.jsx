@@ -5,7 +5,7 @@ const values = [
   {
     title: 'RESPONSABILIDAD',
     // subtitle: 'CONSTRUIMOS',
-    text: 'Para encarar cualquier trabajo, porque somos consientes de la importancia de cada emprendimiento.',
+    text: 'Para encarar cualquier trabajo, porque somos conscientes de la importancia de cada emprendimiento.',
   },
   {
     title: 'EMPATÍA',
@@ -15,7 +15,7 @@ const values = [
   {
     title: 'PROFESIONALISMO',
     // subtitle: 'CREAMOS',
-    text: 'Abalado por los años de experiencia y una capacitación constante en nuevas tendencias y materiales, para lograr la satisfacción del cliente en cada trabajo.',
+    text: 'Avalado por los años de experiencia y una capacitación constante en nuevas tendencias y materiales, para lograr la satisfacción del cliente en cada trabajo.',
   },
 ];
 
@@ -26,20 +26,20 @@ export default function AboutUs() {
   return (
     <section id="nosotros" className="section about">
       <div className="container about__container">
-        <div 
-          ref={sectionRef} 
+        <div
+          ref={sectionRef}
           className={`about__header reveal-init ${isSectionInView ? 'reveal-visible' : ''}`}
         >
           <span className="section-tag">Sobre nosotros</span>
-          <h2 className="section-title">Quienes somos</h2>
+          <h2 className="section-title">Quiénes somos</h2>
           <div className="divider" />
           <p className="section-subtitle">
-            El estudio EnEscala se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura y con el entusiasmo constante para llevar a cabo de manera eficiente nuestra labor con…
+            El estudio Rel Arquitectura se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura y con el entusiasmo constante para llevar a cabo de manera eficiente nuestra labor con…
           </p>
         </div>
 
-        <div 
-          ref={cardsRef} 
+        <div
+          ref={cardsRef}
           className={`about__values stagger-parent ${areCardsInView ? 'is-visible' : ''}`}
         >
           {values.map((v, i) => (

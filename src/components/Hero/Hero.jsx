@@ -1,16 +1,17 @@
 import './Hero.css';
 import { useState, useEffect } from 'react';
 import bgOption1 from '../../assets/test1.png';
-import bgOption2 from '../../assets/FondoEnEscala.jpeg';
+import bgOption2 from '../../assets/test2.png';
+import bgOption3 from '../../assets/test3.png';
 
-const backgrounds = [bgOption1, bgOption2];
+const backgrounds = [bgOption1, bgOption2, bgOption3];
 
 export default function Hero() {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentBgIndex(prev => (prev === 0 ? 1 : 0));
+      setCurrentBgIndex(prev => (prev + 1) % backgrounds.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -53,7 +54,7 @@ export default function Hero() {
         </h1>
 
         {/* Tag */}
-        <span className="hero__tag">EnEscala, Estudio de Arquitectura</span>
+        <span className="hero__tag">Rel, Estudio de Arquitectura</span>
 
         {/* CTA buttons */}
         <div className="hero__actions">
