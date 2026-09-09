@@ -5,7 +5,7 @@ import { projects } from '../data/projects';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
-import heroBg from '../assets/hero-bg.jpg';
+import heroBg from '../assets/test1.png';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();

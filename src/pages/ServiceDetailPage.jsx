@@ -4,7 +4,7 @@ import { servicesData } from '../data/services';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
-import logoE from '../assets/Logo EN ESCALA TEXTO F.svg';
+import logoE from '/LOGO REEL COMPLETO SVG.svg';
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
@@ -77,7 +77,7 @@ export default function ServiceDetailPage() {
                 </Link>
                 <img
                   src={logoE}
-                  alt="En Escala Logo"
+                  alt="Reel Logo"
                   className="service-detail-card__logo"
                 />
               </footer>

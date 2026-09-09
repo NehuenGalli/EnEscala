@@ -34,7 +34,7 @@ export default function AboutUs() {
           <h2 className="section-title">Quiénes somos</h2>
           <div className="divider" />
           <p className="section-subtitle">
-            El estudio Rel Arquitectura se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura y con el entusiasmo constante para llevar a cabo de manera eficiente nuestra labor con…
+            El estudio Reel Arquitectura se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura y con el entusiasmo constante para llevar a cabo de manera eficiente nuestra labor con…
           </p>
         </div>
 
