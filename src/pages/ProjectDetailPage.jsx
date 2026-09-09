@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import SEO from '../components/SEO/SEO';
 import { SITE_CONFIG, getCanonicalUrl } from '../config/siteConfig';
-import heroBg from '../assets/hero-bg.jpg';
+import heroBg from '../assets/test1.png';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -113,7 +113,7 @@ export default function ProjectDetailPage() {
     }
   };
 
-  const seoDescription = project.fullDescription 
+  const seoDescription = project.fullDescription
     ? (project.fullDescription.length > 155 ? `${project.fullDescription.slice(0, 152)}...` : project.fullDescription)
     : `${project.title} - ${project.type} en ${project.location}. En Escala Arquitectura.`;
 

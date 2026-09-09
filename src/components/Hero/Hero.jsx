@@ -54,7 +54,7 @@ export default function Hero() {
         </h1>
 
         {/* Tag */}
-        <span className="hero__tag">Rel, Estudio de Arquitectura</span>
+        <span className="hero__tag">Reel, Estudio de Arquitectura</span>
 
         {/* CTA buttons */}
         <div className="hero__actions">

@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/Logo EN ESCALA TEXTO F.svg';
+import logo from '/LOGO REEL COMPLETO SVG.svg';
 
 const navLinks = [
   { label: 'Inicio', href: '/' },
@@ -80,8 +80,8 @@ export default function Navbar() {
     <header className={`navbar ${isSolid ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--open' : ''}`}>
       <div className="container navbar__inner">
         {/* Logo */}
-        <Link to="/" className="navbar__logo" aria-label="En Escala — Inicio" onClick={e => handleNavClick(e, '/')}>
-          <img src={logo} alt="En Escala Arquitectura" height="44" />
+        <Link to="/" className="navbar__logo" aria-label="Reel — Inicio" onClick={e => handleNavClick(e, '/')}>
+          <img src={logo} alt="Reel Arquitectura" height="44" />
         </Link>
 
         {/* Links desktop */}

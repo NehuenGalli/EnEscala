@@ -4,6 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap');
 
+@font-face {
+  font-family: 'BankGothicBT-Medium';
+  src: url('/fonts/BankGothicBT-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- Design Tokens --- */
 :root {
   /* Colors — Paleta oficial basada en el logo SVG (#CCD12E) */

@@ -1,33 +1,24 @@
 /* ======================================================
-   Preloader Styles (E_solo SVG)
+   Preloader Styles (Reel Arquitectura - Animación por Partes)
    ====================================================== */
 
 .preloader {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background-color: #141414;
-  background-image: radial-gradient(circle at center, #222222 0%, #0d0d0d 100%);
+  background-color: #121415;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: opacity, transform;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, visibility;
 }
 
 .preloader--hiding {
   opacity: 0;
-  transform: scale(1.02);
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.preloader--hiding .preloader__glow {
-  opacity: 0 !important;
-  transition: opacity 0.3s ease;
 }
 
 .preloader__content {
@@ -35,175 +26,178 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  text-align: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 520px;
+  padding: 0 24px;
   position: relative;
-  z-index: 2;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-/* --- Logo E_solo Container --- */
-.preloader__logo-wrap {
+/* --- Escenario del Logo --- */
+.preloader__logo-stage {
   position: relative;
-  width: 160px;
-  height: 130px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.preloader__logo-e {
-  width: 160px;
-  height: 130px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  animation: logoPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.preloader__svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.35));
 }
 
-/* Animación por partes del SVG E_solo */
-.e-part {
-  opacity: 0;
-  transform-origin: center;
-  animation: partAppear 0.9s ease forwards;
-}
-
-.e-front {
-  animation-delay: 0.1s;
-}
-
-.e-dark {
-  animation-delay: 0.3s;
-}
-
-.e-shadow1,
-.e-shadow2 {
-  animation-delay: 0.5s;
-}
-
-.e-inner1,
-.e-inner2,
-.e-inner3,
-.e-inner4 {
-  animation-delay: 0.7s;
-}
-
-/* Brillo ambiental suave circular detrás del logo */
+/* Brillo ambiental suave detrás de la marca isométrica */
 .preloader__glow {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 260px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(204, 209, 46, 0.14) 0%, rgba(204, 209, 46, 0) 70%);
+  background: radial-gradient(circle, rgba(203, 208, 0, 0.22) 0%, rgba(203, 208, 0, 0.05) 45%, rgba(0, 0, 0, 0) 70%);
   border-radius: 50%;
-  animation: glowPulse 1.8s ease-in-out infinite alternate;
+  animation: glowPulse 2.2s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: -1;
+  filter: blur(8px);
 }
 
-/* --- Texto de Marca --- */
-.preloader__text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
+/* ======================================================
+   Partes del Logo Animadas
+   ====================================================== */
 
-.preloader__title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 7px;
-  color: #ffffff;
+/* 1. Marca Isométrica Central "EE" */
+.preloader__mark {
+  transform-origin: 205px 90px;
   opacity: 0;
-  animation: textFadeIn 0.8s ease forwards 0.4s;
+  animation: markAssemble 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;
 }
 
-.preloader__subtitle {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 8px;
-  color: #CCD12E;
-  text-transform: uppercase;
+.mark-facet--lime {
+  fill: #CBD000;
+  filter: drop-shadow(0 0 16px rgba(203, 208, 0, 0.45));
+}
+
+.mark-facet--mid1,
+.mark-facet--mid2,
+.mark-facet--mid3,
+.mark-facet--mid4 {
+  fill: #9fa2a8;
+}
+
+.mark-facet--dark1,
+.mark-facet--dark2,
+.mark-facet--dark3 {
+  fill: #4e5154;
+}
+
+/* 2. Letras Laterales: R y L con BankGothicBT-Medium */
+.preloader__letter {
+  fill: #4d4f4f;
+}
+
+.preloader__letter-wrap {
   opacity: 0;
-  animation: textFadeIn 0.8s ease forwards 0.6s;
 }
 
-/* --- Barra de Progreso --- */
+.preloader__letter-wrap--r {
+  animation: letterSlideInLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.38s;
+}
+
+.preloader__letter-wrap--l {
+  animation: letterSlideInRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.38s;
+}
+
+/* 3. Subtítulo: ARQUITECTURA */
+.preloader__arquitectura {
+  fill: #A8ABB2;
+  opacity: 0;
+  animation: arqFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.7s;
+}
+
+/* --- Barra de Progreso Minimalista --- */
 .preloader__bar-container {
-  width: 170px;
+  width: 180px;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   overflow: hidden;
-  margin-top: 8px;
   position: relative;
+  margin-top: 4px;
 }
 
 .preloader__bar-fill {
   height: 100%;
   width: 0%;
-  background-color: #CCD12E;
-  box-shadow: 0 0 12px #CCD12E;
-  animation: barProgress 1.9s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.2s;
+  background-color: #CBD000;
+  box-shadow: 0 0 12px #CBD000;
+  animation: barProgress 2.1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.15s;
 }
 
 /* ======================================================
-   Keyframe Animations
+   Animaciones Keyframes
    ====================================================== */
 
-@keyframes partAppear {
+@keyframes markAssemble {
   0% {
     opacity: 0;
-    transform: translateY(14px) scale(0.88);
+    transform: scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
-@keyframes logoPulse {
+@keyframes letterSlideInLeft {
   0% {
-    transform: scale(0.75);
     opacity: 0;
-  }
-  40% {
-    transform: scale(1.06);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(0.98);
+    transform: translateX(-24px);
   }
   100% {
-    transform: scale(1);
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes letterSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arqFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
   }
 }
 
 @keyframes glowPulse {
   0% {
     opacity: 0.35;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.85);
   }
   100% {
-    opacity: 0.85;
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-}
-
-@keyframes textFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.18);
   }
 }
 
@@ -211,10 +205,32 @@
   0% {
     width: 0%;
   }
-  50% {
-    width: 65%;
+  40% {
+    width: 55%;
+  }
+  80% {
+    width: 88%;
   }
   100% {
     width: 100%;
+  }
+}
+
+/* ======================================================
+   Accesibilidad: Reduced Motion
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader__mark,
+  .preloader__letter-wrap,
+  .preloader__arquitectura,
+  .preloader__bar-fill,
+  .preloader__glow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .preloader__bar-fill {
+    width: 100% !important;
   }
 }

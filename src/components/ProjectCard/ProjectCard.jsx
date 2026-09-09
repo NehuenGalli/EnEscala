@@ -1,6 +1,6 @@
 import './ProjectCard.css';
 import { Link } from 'react-router-dom';
-import heroBg from '../../assets/hero-bg.jpg';
+import heroBg from '../../assets/test1.png';
 
 export default function ProjectCard({ project, index = 0 }) {
   const image = project.image || heroBg;
