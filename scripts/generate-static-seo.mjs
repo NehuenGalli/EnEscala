@@ -3,7 +3,10 @@ import path from 'node:path';
 
 const siteUrl = 'https://reelarquitectura.com.ar';
 const siteName = 'Reel Arquitectura';
-const socialImage = `${siteUrl}/FondoServicios.webp`;
+const socialImage = `${siteUrl}/reel-arquitectura-compartir.jpg`;
+const socialImageWidth = 1200;
+const socialImageHeight = 630;
+const socialImageType = 'image/jpeg';
 const today = new Date().toISOString().slice(0, 10);
 
 const projectImages = {
@@ -15,6 +18,15 @@ const projectImages = {
   'Casa-GYG': 'GYG 1_20260603_093144_resultado',
   'Casa-GUACCI': 'LUCAS 1 _20260527_130007_resultado',
   'Casa-KOVACH': 'RICARDO NQ 1_20231211_112559_resultado',
+};
+
+const serviceImages = {
+  'anteproyecto-y-documentacion': 'Anteproyecto',
+  'direccion-de-obra': 'FOTO DIRECCIÓN_20250728_154246 F_resultado',
+  'construccion-y-remodelacion': 'FOTO CONSTRUCCIÓN_20250207_102618 F_resultado',
+  'analisis-de-costos': 'Foto ANÁLISIS DE COSTOS F_resultado',
+  'tramites-de-habilitaciones': 'Foto TRÁMITES Y HABILITACIONES F_resultado',
+  'diseno-interior-y-mobiliarios': 'Foto DISEÑO INTERIOR Y MOBILIARIOS_resultado',
 };
 
 const serviceAreas = [
@@ -36,6 +48,9 @@ const routes = [
       'Reel Arquitectura. Estudio especializado en diseño, proyecto, construcción, remodelación y dirección de obra en AMBA, Buenos Aires.',
     priority: '1.0',
     changefreq: 'weekly',
+    imageWidth: socialImageWidth,
+    imageHeight: socialImageHeight,
+    imageType: socialImageType,
     schema: {
       '@context': 'https://schema.org',
       '@type': ['LocalBusiness', 'ArchitecturalFirm'],
@@ -121,6 +136,7 @@ const routes = [
     description,
     priority: '0.8',
     changefreq: 'monthly',
+    imageAsset: serviceImages[slug],
     schema: {
       '@context': 'https://schema.org',
       '@type': 'Service',
@@ -138,6 +154,7 @@ const routes = [
         name,
       })),
       url: `${siteUrl}/servicio/${slug}`,
+      image: socialImage,
     },
   })),
 ];
@@ -191,6 +208,12 @@ const stripManagedHeadTags = (html) =>
 const renderMeta = (route) => {
   const canonical = canonicalFor(route.path);
   const routeImage = route.image || socialImage;
+  const imageMetadata = [
+    `  <meta property="og:image:secure_url" content="${routeImage}" />`,
+    route.imageWidth ? `  <meta property="og:image:width" content="${route.imageWidth}" />` : '',
+    route.imageHeight ? `  <meta property="og:image:height" content="${route.imageHeight}" />` : '',
+    route.imageType ? `  <meta property="og:image:type" content="${route.imageType}" />` : '',
+  ].filter(Boolean);
   const schema = route.schema
     ? `  <script id="structured-data-schema" type="application/ld+json">${JSON.stringify(route.schema)}</script>\n`
     : '';
@@ -207,11 +230,13 @@ const renderMeta = (route) => {
     `  <meta property="og:description" content="${escapeHtml(route.description)}" />`,
     `  <meta property="og:url" content="${canonical}" />`,
     `  <meta property="og:image" content="${routeImage}" />`,
+    ...imageMetadata,
     `  <meta property="og:image:alt" content="${siteName} - arquitectura y dirección de obra" />`,
     '  <meta name="twitter:card" content="summary_large_image" />',
     `  <meta name="twitter:title" content="${escapeHtml(route.title)}" />`,
     `  <meta name="twitter:description" content="${escapeHtml(route.description)}" />`,
     `  <meta name="twitter:image" content="${routeImage}" />`,
+    `  <meta name="twitter:image:alt" content="${siteName} - arquitectura y dirección de obra" />`,
     schema.trimEnd(),
   ]
     .filter(Boolean)

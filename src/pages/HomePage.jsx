@@ -44,7 +44,7 @@ export default function HomePage() {
     'url': getCanonicalUrl('/'),
     'telephone': SITE_CONFIG.contact.phone,
     'email': SITE_CONFIG.contact.email,
-    'image': `${SITE_CONFIG.siteUrl}/FondoServicios.webp`,
+    'image': `${SITE_CONFIG.siteUrl}${SITE_CONFIG.defaultSocialImage}`,
     'address': {
       '@type': 'PostalAddress',
       'addressLocality': SITE_CONFIG.contact.addressLocality,
@@ -70,6 +70,10 @@ export default function HomePage() {
       <SEO
         title="Reel Arquitectura | Estudio de Arquitectura y Dirección de Obra"
         description="Reel Arquitectura. Estudio especializado en diseño, proyecto, construcción, remodelación y dirección de obra en AMBA, Buenos Aires."
+        image={SITE_CONFIG.defaultSocialImage}
+        imageWidth={SITE_CONFIG.defaultSocialImageWidth}
+        imageHeight={SITE_CONFIG.defaultSocialImageHeight}
+        imageType={SITE_CONFIG.defaultSocialImageType}
         schema={homeSchema}
       />
       <Navbar />
