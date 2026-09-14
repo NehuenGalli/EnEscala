@@ -1,8 +1,8 @@
 import './Hero.css';
 import { useState, useEffect } from 'react';
-import bgOption1 from '../../assets/test1.png';
-import bgOption2 from '../../assets/test2.png';
-import bgOption3 from '../../assets/test3.png';
+import bgOption1 from '../../assets/test1.webp';
+import bgOption2 from '../../assets/test2.webp';
+import bgOption3 from '../../assets/test3.webp';
 
 const backgrounds = [bgOption1, bgOption2, bgOption3];
 

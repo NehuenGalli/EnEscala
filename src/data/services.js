@@ -1,4 +1,4 @@
-import fondoAnteproyecto from '../assets/Images/Fondos/Anteproyecto.jpeg';
+import fondoAnteproyecto from '../assets/Images/Fondos/Anteproyecto.webp';
 import fondoDireccion from '../assets/Images/Fondos/FOTO DIRECCIÓN_20250728_154246 F_resultado.webp';
 import fondoConstruccion from '../assets/Images/Fondos/FOTO CONSTRUCCIÓN_20250207_102618 F_resultado.webp';
 import fondoCostos from '../assets/Images/Fondos/Foto ANÁLISIS DE COSTOS F_resultado.webp';

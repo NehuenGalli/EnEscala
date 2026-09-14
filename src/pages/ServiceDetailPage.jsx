@@ -132,7 +132,7 @@ export default function ServiceDetailPage() {
                 </Link>
                 <img
                   src={logoE}
-                  alt="Reel Logo"
+                  alt="Reel Arquitectura"
                   className="service-detail-card__logo"
                 />
               </footer>

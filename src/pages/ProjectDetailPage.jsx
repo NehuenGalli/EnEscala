@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import SEO from '../components/SEO/SEO';
 import { SITE_CONFIG, getCanonicalUrl } from '../config/siteConfig';
-import heroBg from '../assets/test1.png';
+import heroBg from '../assets/test1.webp';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -115,7 +115,7 @@ export default function ProjectDetailPage() {
 
   const seoDescription = project.fullDescription
     ? (project.fullDescription.length > 155 ? `${project.fullDescription.slice(0, 152)}...` : project.fullDescription)
-    : `${project.title} - ${project.type} en ${project.location}. En Escala Arquitectura.`;
+    : `${project.title} - ${project.type} en ${project.location}. Reel Arquitectura.`;
 
   return (
     <>
@@ -198,7 +198,7 @@ export default function ProjectDetailPage() {
                 >
                   <img
                     src={imgSrc}
-                    alt={`${project.title} - ${project.type} (${idx + 1} de ${galleryList.length}) | En Escala Arquitectura`}
+                    alt={`${project.title} - ${project.type} (${idx + 1} de ${galleryList.length}) | Reel Arquitectura`}
                     loading="lazy"
                     onLoad={handleImageLoad}
                   />
@@ -253,7 +253,7 @@ export default function ProjectDetailPage() {
             >
               <img
                 src={galleryList[activeImageIndex]}
-                alt={`${project.title} - Vista ampliada (${activeImageIndex + 1} de ${galleryList.length}) | En Escala Arquitectura`}
+                alt={`${project.title} - Vista ampliada (${activeImageIndex + 1} de ${galleryList.length}) | Reel Arquitectura`}
                 className="lightbox-modal__img"
               />
             </div>

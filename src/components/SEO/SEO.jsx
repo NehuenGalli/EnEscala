@@ -51,11 +51,10 @@ export default function SEO({
   
   // Si la imagen es relativa o importada de Vite, resolvemos la URL absoluta
   const getAbsoluteImageUrl = (img) => {
-    if (!img) return `${(typeof window !== 'undefined' ? window.location.origin : SITE_CONFIG.siteUrl)}/FondoServicios.jpeg`;
+    if (!img) return `${SITE_CONFIG.siteUrl}/FondoServicios.webp`;
     if (img.startsWith('http://') || img.startsWith('https://')) return img;
-    const base = (typeof window !== 'undefined' ? window.location.origin : SITE_CONFIG.siteUrl);
     const cleanImg = img.startsWith('/') ? img : `/${img}`;
-    return `${base}${cleanImg}`;
+    return `${SITE_CONFIG.siteUrl}${cleanImg}`;
   };
 
   const finalImage = getAbsoluteImageUrl(image);
@@ -75,6 +74,7 @@ export default function SEO({
     setMetaTag('property', 'og:url', canonicalUrl);
     setMetaTag('property', 'og:type', type);
     setMetaTag('property', 'og:image', finalImage);
+    setMetaTag('property', 'og:image:alt', `${SITE_CONFIG.siteName} - arquitectura y dirección de obra`);
     setMetaTag('property', 'og:site_name', SITE_CONFIG.siteName);
     setMetaTag('property', 'og:locale', SITE_CONFIG.locale);
 

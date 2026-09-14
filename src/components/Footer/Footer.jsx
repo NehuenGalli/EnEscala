@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <img src={logoE} alt="Reel Logo" className="footer__logo" />
+            <img src={logoE} alt="Reel Arquitectura" className="footer__logo" />
             <p className="footer__desc">
               El estudio Reel Arquitectura se localiza en la zona sur del gran Bs. As. y lo integramos los arquitectos Maximiliano Gallitelli y Rodolfo Diez con más de 20 años de experiencia en el ejercicio de la arquitectura
             </p>

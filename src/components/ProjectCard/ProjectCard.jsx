@@ -1,6 +1,6 @@
 import './ProjectCard.css';
 import { Link } from 'react-router-dom';
-import heroBg from '../../assets/test1.png';
+import heroBg from '../../assets/test1.webp';
 
 export default function ProjectCard({ project, index = 0 }) {
   const image = project.image || heroBg;
@@ -17,7 +17,7 @@ export default function ProjectCard({ project, index = 0 }) {
       <div className="project-card__img-wrap">
         <img
           src={image}
-          alt={`${project.title} - ${project.type} | En Escala Arquitectura`}
+          alt={`${project.title} - ${project.type} | Reel Arquitectura`}
           className="project-card__img"
           loading="lazy"
         />

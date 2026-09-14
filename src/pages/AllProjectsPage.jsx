@@ -11,8 +11,8 @@ export default function AllProjectsPage() {
   const projectsSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': 'Todos los Proyectos | En Escala Arquitectura',
-    'description': 'Explorá nuestro archivo completo de obras y proyectos. Cada diseño refleja nuestro compromiso con la calidad espacial y constructiva.',
+    'name': 'Todos los Proyectos | Reel Arquitectura',
+    'description': 'Explorá nuestro archivo completo de obras y proyectos de arquitectura, construcción, remodelación y dirección de obra.',
     'url': getCanonicalUrl('/proyectos'),
     'breadcrumb': {
       '@type': 'BreadcrumbList',
@@ -37,7 +37,7 @@ export default function AllProjectsPage() {
     <>
       <SEO
         title="Todos los Proyectos | Portafolio de Obras"
-        description="Explorá nuestro archivo completo de obras y proyectos. Cada diseño refleja nuestro compromiso con la calidad espacial y constructiva."
+        description="Explorá nuestro archivo completo de obras y proyectos de arquitectura, construcción, remodelación y dirección de obra."
         schema={projectsSchema}
       />
       <ScrollToTop />
