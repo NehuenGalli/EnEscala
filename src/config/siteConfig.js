@@ -9,10 +9,10 @@ export const SITE_CONFIG = {
   siteName: 'Reel Arquitectura',
   defaultTitle: 'Reel Arquitectura | Estudio de Arquitectura y Dirección de Obra',
   defaultDescription: 'Estudio de arquitectura especializado en anteproyecto, diseño, construcción, remodelación y dirección de obra en AMBA, Buenos Aires.',
-  defaultSocialImage: '/reel-arquitectura-compartir.jpg',
+  defaultSocialImage: '/portas_busquedas_resultado.webp',
   defaultSocialImageWidth: 1200,
   defaultSocialImageHeight: 630,
-  defaultSocialImageType: 'image/jpeg',
+  defaultSocialImageType: 'image/webp',
   
   locale: 'es_AR',
   ogType: 'website',

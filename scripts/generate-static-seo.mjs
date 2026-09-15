@@ -3,10 +3,10 @@ import path from 'node:path';
 
 const siteUrl = 'https://reelarquitectura.com.ar';
 const siteName = 'Reel Arquitectura';
-const socialImage = `${siteUrl}/reel-arquitectura-compartir.jpg`;
+const socialImage = `${siteUrl}/portas_busquedas_resultado.webp`;
 const socialImageWidth = 1200;
 const socialImageHeight = 630;
-const socialImageType = 'image/jpeg';
+const socialImageType = 'image/webp';
 const today = new Date().toISOString().slice(0, 10);
 
 const projectImages = {
