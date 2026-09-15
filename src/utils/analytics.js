@@ -1,6 +1,6 @@
 export const ANALYTICS_CONFIG = {
-  gtmId: import.meta.env.VITE_GTM_ID || '',
-  gaMeasurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
+  gtmId: import.meta.env.VITE_GTM_ID || 'GTM-KRRMQCJS',
+  gaMeasurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-SQXJQLSB81',
   metaPixelId: import.meta.env.VITE_META_PIXEL_ID || '',
 };
 
