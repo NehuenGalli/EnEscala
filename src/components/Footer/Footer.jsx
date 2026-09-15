@@ -1,5 +1,6 @@
 import './Footer.css';
 import logoE from '/LOGO REEL COMPLETO SVG.svg';
+import { trackContactIntent } from '../../utils/analytics';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,6 +36,7 @@ export default function Footer() {
                     href="https://www.instagram.com/reelArquitectura/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackContactIntent('instagram', 'footer')}
                   >
                     Instagram
                   </a>
@@ -50,6 +52,9 @@ export default function Footer() {
           <p className="footer__copy">
             &copy; {currentYear} Reel Arquitectura. Todos los derechos reservados.
           </p>
+          <a href="/politica-de-privacidad" className="footer__legal-link">
+            Política de privacidad y cookies
+          </a>
           {/* <p className="footer__credits">
             Diseño por <span className="footer__credits-name">En Escala</span>
           </p> */}

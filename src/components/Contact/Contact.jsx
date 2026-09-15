@@ -1,6 +1,7 @@
 import './Contact.css';
 import { useState } from 'react';
 import { useInView } from '../../hooks/useInView';
+import { trackContactIntent } from '../../utils/analytics';
 
 export default function Contact() {
   const [formRef, isFormInView] = useInView({ threshold: 0.15, once: true });
@@ -23,6 +24,7 @@ export default function Contact() {
     const phone = '5491165229301';
     const text = `Hola! Mi nombre es *${formData.name.trim()}*.\n\n*Consulta:* ${formData.message.trim()}`;
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    trackContactIntent('whatsapp', 'contact_form');
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -98,6 +100,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="contact-info-value"
+                      onClick={() => trackContactIntent('whatsapp', 'contact_info')}
                     >
                       +54 11 6522-9301
                     </a>
@@ -113,7 +116,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="contact-info-label">Email</span>
-                    <a href="mailto:reelarquitectura@gmail.com" className="contact-info-value">reelarquitectura@gmail.com</a>
+                    <a
+                      href="mailto:reelarquitectura@gmail.com"
+                      className="contact-info-value"
+                      onClick={() => trackContactIntent('email', 'contact_info')}
+                    >
+                      reelarquitectura@gmail.com
+                    </a>
                   </div>
                 </li>
 
@@ -140,6 +149,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="contact-social__link"
                     aria-label="Instagram @reelArquitectura"
+                    onClick={() => trackContactIntent('instagram', 'contact_info')}
                   >
                     @reelArquitectura
                   </a>

@@ -94,6 +94,28 @@ const routes = [
     priority: '0.9',
     changefreq: 'weekly',
   },
+  {
+    path: '/politica-de-privacidad',
+    title: `Política de privacidad y cookies | ${siteName}`,
+    description:
+      'Información sobre privacidad, cookies, analítica, publicidad y datos de contacto en el sitio web de Reel Arquitectura.',
+    priority: '0.3',
+    changefreq: 'yearly',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Política de privacidad y cookies',
+      description:
+        'Información sobre privacidad, cookies, analítica y contacto en el sitio web de Reel Arquitectura.',
+      url: `${siteUrl}/politica-de-privacidad`,
+      publisher: {
+        '@type': 'ArchitecturalFirm',
+        name: siteName,
+        email: 'reelarquitectura@gmail.com',
+        url: siteUrl,
+      },
+    },
+  },
   ...[
     ['Casa-LAN', 'Casa LAN', 'Proyecto y Dirección de Obra', 'Ampliación y remodelación de galería en Nuevo Quilmes, partido de Quilmes. Proyecto y dirección de obra por Reel Arquitectura.'],
     ['Casa-Gorosito', 'Casa Gorosito', 'Proyecto y Dirección de Obra', 'Vivienda de fin de semana en Campos de Roca II, Brandsen. Proyecto residencial y dirección de obra por Reel Arquitectura.'],

@@ -82,6 +82,15 @@
   font-weight: 600;
 }
 
+.footer__legal-link {
+  color: var(--color-gray-light);
+  transition: color var(--transition-fast);
+}
+
+.footer__legal-link:hover {
+  color: var(--color-white);
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .footer {
